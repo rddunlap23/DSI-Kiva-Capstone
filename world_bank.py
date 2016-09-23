@@ -15,7 +15,8 @@ class world_bank(object):
        wb.country_mapping_to_db()
        
        """
-    
+
+
     def __init__(self, country_list = [], dbase_method='replace',start_year='2005',end_year='2016'):
         self.indicators = ['NY.GDP.PCAP.KD.ZG','NY.GDP.MKTP.KD.ZG','ST.INT.ARVL','NY.GNP.PCAP.PP.CD']
         self.tables = ['gdp_growth_pcap','gdp_growth','tourism','gni_pc']
@@ -72,6 +73,8 @@ class world_bank(object):
            Function takes list of iso2 codes and indicator code
            Example URL with indicator description http://api.worldbank.org/indicators/NY.GDP.MKTP.CD
         """
+
+        #Had to update Guam, Somalia, and Myanmar in database manually
         
         data_dic = {}
 
