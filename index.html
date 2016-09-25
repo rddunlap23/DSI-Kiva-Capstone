@@ -1,25 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>DSI Capstone - Kiva Microloans by rddunlap23</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>DSI Capstone - Kiva Microloans by rddunlap23</title>
   </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">DSI Capstone - Kiva Microloans</h1>
-      <h2 class="project-tagline">Exploring Why Kiva Loans Expire</h2>
-      <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone" class="btn">View on GitHub</a>
-      <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
 
-    <section class="main-content">
-      <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/gh-pages/images/kiva-loans-life.jpg?raw=true" alt="Title"></p>
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>DSI Capstone - Kiva Microloans</h1>
+          <h2>Exploring Why Kiva Loans Expire</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/rddunlap23/DSI-Kiva-Capstone" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/gh-pages/images/kiva-loans-life.jpg?raw=true" alt="Title"></p>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/gh-pages/images/Kiva-Mission.png?raw=true" alt="About-Kiva"></p>
 
@@ -56,7 +68,32 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <p>The goal of this project is to build a model that will help predict if a loan is at risk of being funded. Armed with this knowledge Kiva can either work to feature these loans more prominently on the sight or work with field partners and borrowers to better present their loans to maximize demand and increase funding. </p>
 
 <h2>
+<a id="exploring-breakdown-of-who-kiva-loans-to" class="anchor" href="#exploring-breakdown-of-who-kiva-loans-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploring Breakdown of Who Kiva Loans To</h2>
+
+<p>First off before jumping into exploring who has trouble getting loans funded on Kiva I want to take a moment to explore the breakdown of the loans they do make. All of the below figures are for loans made from November 29th, 2011 through August 22nd, 2016. During this period Kiva made a total of 694,202 loans for  $588,538,975. As you can see from the below plots a few things stand out. (One note is that only displaying top 25 countries by $ loaned)</p>
+
+<ul>
+<li>Considerably more loans are made to women than men. Almost 3:1</li>
+<li>Agriculture, Retail, and Food are the most popular sectors making up greater than half of all dollars loaned</li>
+<li>While Latin America and Sub Saharan Africa are the two regions receiving the most loans the top country is the Philippines which is in South East Asia. </li>
+<li>Countries identified by the world bank as lower middle income receive the most loans with upper middle income countries coming in second. These are both ahead of countries flagged as low income. My initial guess here is that this is because the rule of law and strength of institutions make it easier to provide loans and start up a business in these countries. This is something that would definitely warrant further research to dig into. </li>
+</ul>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/gender_loaned.png?raw=True" alt="gender_amount">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector_loaned.png" alt="sector_amount">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/region_loaned.png" alt="region_loaned">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country_loaned.png" alt="country_loaned"></p>
+
+<h2>
 <a id="exploring-kiva-expired-loans" class="anchor" href="#exploring-kiva-expired-loans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploring Kiva Expired Loans</h2>
+
+<p>Now that we have a feel for the profile of the loans made we want to start exploring which types of loans are the most likely to expire before being funded. In total there were 39,975 loans that expired for a total of $57,930,375. This make up ~5.4% of all loans. Once we start subsetting the data a few things stand out. (For countries only showing top 25 countries by % loans expired) </p>
+
+<ul>
+<li>Men have a much more difficult time getting loans funded. Overall ~12% of mens loans go unfunded while women only have ~3.2% of funds expire.</li>
+<li>There is a clear trend that the higher income regions have a harder time getting funded. I suspect this is because the loans are altruistic in nature people are generally biased towards helping out those they feel need it most. </li>
+<li>While all regions have higher expiration rates for men South Asia and Sub-Saharan Africa's disparity is especially stark. </li>
+</ul>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country.png?raw=true" alt="country">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_level.png?raw=true" alt="income-level">
@@ -64,15 +101,15 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector.png?raw=true" alt="sectors"></p>
 
 
+        </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/rddunlap23/DSI-Kiva-Capstone">DSI Capstone - Kiva Microloans</a> is maintained by <a href="https://github.com/rddunlap23">rddunlap23</a>.</span>
+        <footer>
+          DSI Capstone - Kiva Microloans is maintained by <a href="https://github.com/rddunlap23">rddunlap23</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+        
+      </div>
+    </div>
   </body>
 </html>
