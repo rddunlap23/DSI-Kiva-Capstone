@@ -1,0 +1,3264 @@
+
+        <!DOCTYPE html>
+        <head>
+            
+        
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://raw.githubusercontent.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+        
+        
+        
+            
+            <style>
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                }
+
+            #map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+            
+        
+            
+            <style> #map_a395d27036bc40138fb6b6e57c99bd62 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+        
+        
+        </head>
+        <body>
+            
+        
+            
+            <div class="folium-map" id="map_a395d27036bc40138fb6b6e57c99bd62" ></div>
+        
+        
+        
+        </body>
+        <script>
+            
+        
+            
+
+            var southWest = L.latLng(-90, -180);
+            var northEast = L.latLng(90, 180);
+            var bounds = L.latLngBounds(southWest, northEast);
+
+            var map_a395d27036bc40138fb6b6e57c99bd62 = L.map('map_a395d27036bc40138fb6b6e57c99bd62', {
+                                           center:[-1.27975,36.8126],
+                                           zoom: 2,
+                                           maxBounds: bounds,
+                                           layers: [],
+                                           crs: L.CRS.EPSG3857
+                                         });
+            
+        
+        
+            
+            var tile_layer_8a71db100daa4df1819bcb5116f081e7 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    attribution: 'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                ).addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+
+        
+        
+            
+
+            var marker_cf644a6ce6c24711a88ef80789905a17 = L.marker(
+                [-0.229498,-78.5243],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_eb36ac9e1a794923ad67c451ea0d2867 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_cf644a6ce6c24711a88ef80789905a17.setIcon(icon_eb36ac9e1a794923ad67c451ea0d2867);
+            
+        
+            
+            var popup_cb903d328cc54b03a369d90a2bf4bb66 = L.popup({maxWidth: '300'});
+
+            
+                var html_9072e492f3a24dfbbe320cea6568bf91 = $('         <div id="html_9072e492f3a24dfbbe320cea6568bf91"                 style="width: 100.0%; height: 100.0%;">                 Ecuador $18,678,475</div>                 ')[0];
+                popup_cb903d328cc54b03a369d90a2bf4bb66.setContent(html_9072e492f3a24dfbbe320cea6568bf91);
+            
+
+            marker_cf644a6ce6c24711a88ef80789905a17.bindPopup(popup_cb903d328cc54b03a369d90a2bf4bb66);
+
+            
+        
+        
+            
+
+            var marker_f788ba10dc0e4c42aa48ccb4afb77ee5 = L.marker(
+                [-1.27975,36.8126],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_3bb6790c6b154d3fa78bc809fb8670d1 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f788ba10dc0e4c42aa48ccb4afb77ee5.setIcon(icon_3bb6790c6b154d3fa78bc809fb8670d1);
+            
+        
+            
+            var popup_57d9ef180e4e482e850e82c019bb0837 = L.popup({maxWidth: '300'});
+
+            
+                var html_0ff03888dd294352a42f7af7198d5ff0 = $('         <div id="html_0ff03888dd294352a42f7af7198d5ff0"                 style="width: 100.0%; height: 100.0%;">                 Kenya $41,178,925</div>                 ')[0];
+                popup_57d9ef180e4e482e850e82c019bb0837.setContent(html_0ff03888dd294352a42f7af7198d5ff0);
+            
+
+            marker_f788ba10dc0e4c42aa48ccb4afb77ee5.bindPopup(popup_57d9ef180e4e482e850e82c019bb0837);
+
+            
+        
+        
+            
+
+            var marker_d872e2eb4a964207a3008423bc3f8a06 = L.marker(
+                [-1.95325,30.0587],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_d3b0ebab06e0457a8a423b0b2d4a6c0a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d872e2eb4a964207a3008423bc3f8a06.setIcon(icon_d3b0ebab06e0457a8a423b0b2d4a6c0a);
+            
+        
+            
+            var popup_47d7ccbec83b45bca26576c75a433f0d = L.popup({maxWidth: '300'});
+
+            
+                var html_25bbdbedbfb041bf9b9abb83fc03c914 = $('         <div id="html_25bbdbedbfb041bf9b9abb83fc03c914"                 style="width: 100.0%; height: 100.0%;">                 Rwanda $14,725,950</div>                 ')[0];
+                popup_47d7ccbec83b45bca26576c75a433f0d.setContent(html_25bbdbedbfb041bf9b9abb83fc03c914);
+            
+
+            marker_d872e2eb4a964207a3008423bc3f8a06.bindPopup(popup_47d7ccbec83b45bca26576c75a433f0d);
+
+            
+        
+        
+            
+
+            var marker_69f074fa0af2480b87b56d6d412043ac = L.marker(
+                [-12.0931,-77.0465],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_5925060d83404b0884a100db82583e86 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_69f074fa0af2480b87b56d6d412043ac.setIcon(icon_5925060d83404b0884a100db82583e86);
+            
+        
+            
+            var popup_0055631759be4dad9eda1edff552a302 = L.popup({maxWidth: '300'});
+
+            
+                var html_e8234507db934ad4a8f6e433f5049bca = $('         <div id="html_e8234507db934ad4a8f6e433f5049bca"                 style="width: 100.0%; height: 100.0%;">                 Peru $38,252,275</div>                 ')[0];
+                popup_0055631759be4dad9eda1edff552a302.setContent(html_e8234507db934ad4a8f6e433f5049bca);
+            
+
+            marker_69f074fa0af2480b87b56d6d412043ac.bindPopup(popup_0055631759be4dad9eda1edff552a302);
+
+            
+        
+        
+            
+
+            var marker_1c76fbdd2c3a4807a94ddf72278c93c2 = L.marker(
+                [-13.8314,-171.752],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b533e9531d4248d3af6969d8988fcced = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1c76fbdd2c3a4807a94ddf72278c93c2.setIcon(icon_b533e9531d4248d3af6969d8988fcced);
+            
+        
+            
+            var popup_1ba945750cdd485089dba00e5f8d2b3d = L.popup({maxWidth: '300'});
+
+            
+                var html_7eb1a32acba1424782d6cd4ef664f4f2 = $('         <div id="html_7eb1a32acba1424782d6cd4ef664f4f2"                 style="width: 100.0%; height: 100.0%;">                 Samoa $6,215,900</div>                 ')[0];
+                popup_1ba945750cdd485089dba00e5f8d2b3d.setContent(html_7eb1a32acba1424782d6cd4ef664f4f2);
+            
+
+            marker_1c76fbdd2c3a4807a94ddf72278c93c2.bindPopup(popup_1ba945750cdd485089dba00e5f8d2b3d);
+
+            
+        
+        
+            
+
+            var marker_8001ad154ba144929cf444c9f7f5be50 = L.marker(
+                [-13.9899,33.7703],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_15dd91b87c60437b8b934b0483582b7c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_8001ad154ba144929cf444c9f7f5be50.setIcon(icon_15dd91b87c60437b8b934b0483582b7c);
+            
+        
+            
+            var popup_a33aae4cf1b842dd82eaf0ff1520b8fe = L.popup({maxWidth: '300'});
+
+            
+                var html_9dad2d54fdfc4e2da8404062252cf4b0 = $('         <div id="html_9dad2d54fdfc4e2da8404062252cf4b0"                 style="width: 100.0%; height: 100.0%;">                 Malawi $974,250</div>                 ')[0];
+                popup_a33aae4cf1b842dd82eaf0ff1520b8fe.setContent(html_9dad2d54fdfc4e2da8404062252cf4b0);
+            
+
+            marker_8001ad154ba144929cf444c9f7f5be50.bindPopup(popup_a33aae4cf1b842dd82eaf0ff1520b8fe);
+
+            
+        
+        
+            
+
+            var marker_7e9d52e4a9a94fc3af6f498b3e3d9667 = L.marker(
+                [-13.9908,-66.1936],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_e4845b9c54014f9a894257e8650a8484 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7e9d52e4a9a94fc3af6f498b3e3d9667.setIcon(icon_e4845b9c54014f9a894257e8650a8484);
+            
+        
+            
+            var popup_ad2d320e808c4b67b66c473886a3eae7 = L.popup({maxWidth: '300'});
+
+            
+                var html_b128188e16254e0ca22029400b2ba3b7 = $('         <div id="html_b128188e16254e0ca22029400b2ba3b7"                 style="width: 100.0%; height: 100.0%;">                 Bolivia $24,795,325</div>                 ')[0];
+                popup_ad2d320e808c4b67b66c473886a3eae7.setContent(html_b128188e16254e0ca22029400b2ba3b7);
+            
+
+            marker_7e9d52e4a9a94fc3af6f498b3e3d9667.bindPopup(popup_ad2d320e808c4b67b66c473886a3eae7);
+
+            
+        
+        
+            
+
+            var marker_1000ec0bc7534b23bf77f43866c35af4 = L.marker(
+                [-15.3982,28.2937],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_7148c7f357714656840e3e0751daf260 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1000ec0bc7534b23bf77f43866c35af4.setIcon(icon_7148c7f357714656840e3e0751daf260);
+            
+        
+            
+            var popup_f5af1b96bd894f2385b5129502ce66ff = L.popup({maxWidth: '300'});
+
+            
+                var html_0626b67d8f9e435184480ee63cbc469b = $('         <div id="html_0626b67d8f9e435184480ee63cbc469b"                 style="width: 100.0%; height: 100.0%;">                 Zambia $1,360,900</div>                 ')[0];
+                popup_f5af1b96bd894f2385b5129502ce66ff.setContent(html_0626b67d8f9e435184480ee63cbc469b);
+            
+
+            marker_1000ec0bc7534b23bf77f43866c35af4.bindPopup(popup_f5af1b96bd894f2385b5129502ce66ff);
+
+            
+        
+        
+            
+
+            var marker_0792917aa2d24fc8990fc267a7d2437e = L.marker(
+                [-15.7801,-47.9292],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_2013a56695904565876a044243268b99 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0792917aa2d24fc8990fc267a7d2437e.setIcon(icon_2013a56695904565876a044243268b99);
+            
+        
+            
+            var popup_532bfdaeeb66498e8160eff4e06b1e21 = L.popup({maxWidth: '300'});
+
+            
+                var html_bb386cbc74744dbe94f9d55c72b5784e = $('         <div id="html_bb386cbc74744dbe94f9d55c72b5784e"                 style="width: 100.0%; height: 100.0%;">                 Brazil $253,475</div>                 ')[0];
+                popup_532bfdaeeb66498e8160eff4e06b1e21.setContent(html_bb386cbc74744dbe94f9d55c72b5784e);
+            
+
+            marker_0792917aa2d24fc8990fc267a7d2437e.bindPopup(popup_532bfdaeeb66498e8160eff4e06b1e21);
+
+            
+        
+        
+            
+
+            var marker_e08786d968dc4b1f8de681e5cff735c5 = L.marker(
+                [-17.7404,168.321],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_e4aac6a84a7c441ba035fe56e592be90 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e08786d968dc4b1f8de681e5cff735c5.setIcon(icon_e4aac6a84a7c441ba035fe56e592be90);
+            
+        
+            
+            var popup_92e9954b6ae54651bff87b7b27a7637b = L.popup({maxWidth: '300'});
+
+            
+                var html_da79e3a94a49420e8163bfdad9640d85 = $('         <div id="html_da79e3a94a49420e8163bfdad9640d85"                 style="width: 100.0%; height: 100.0%;">                 Vanuatu $9,250</div>                 ')[0];
+                popup_92e9954b6ae54651bff87b7b27a7637b.setContent(html_da79e3a94a49420e8163bfdad9640d85);
+            
+
+            marker_e08786d968dc4b1f8de681e5cff735c5.bindPopup(popup_92e9954b6ae54651bff87b7b27a7637b);
+
+            
+        
+        
+            
+
+            var marker_f860548c5d3b4dce856e3bc955788668 = L.marker(
+                [-17.8312,31.0672],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_72d9293dd39d4dbba424e2304de8980d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f860548c5d3b4dce856e3bc955788668.setIcon(icon_72d9293dd39d4dbba424e2304de8980d);
+            
+        
+            
+            var popup_7e63fd7c75de4beb8ccdd2346105b7c7 = L.popup({maxWidth: '300'});
+
+            
+                var html_0762da729fba4dc197fcd53fa7f54e07 = $('         <div id="html_0762da729fba4dc197fcd53fa7f54e07"                 style="width: 100.0%; height: 100.0%;">                 Zimbabwe $3,384,150</div>                 ')[0];
+                popup_7e63fd7c75de4beb8ccdd2346105b7c7.setContent(html_0762da729fba4dc197fcd53fa7f54e07);
+            
+
+            marker_f860548c5d3b4dce856e3bc955788668.bindPopup(popup_7e63fd7c75de4beb8ccdd2346105b7c7);
+
+            
+        
+        
+            
+
+            var marker_55668e4e18f943f69b6a496a1ee8afbd = L.marker(
+                [-20.4667,45.7167],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_2c00e56c073044488669350269f923c4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_55668e4e18f943f69b6a496a1ee8afbd.setIcon(icon_2c00e56c073044488669350269f923c4);
+            
+        
+            
+            var popup_844b8ebfd9a44aae87fe769da3473218 = L.popup({maxWidth: '300'});
+
+            
+                var html_2d797ed5fcfa402badaab533dfdbdd8d = $('         <div id="html_2d797ed5fcfa402badaab533dfdbdd8d"                 style="width: 100.0%; height: 100.0%;">                 Madagascar $635,125</div>                 ')[0];
+                popup_844b8ebfd9a44aae87fe769da3473218.setContent(html_2d797ed5fcfa402badaab533dfdbdd8d);
+            
+
+            marker_55668e4e18f943f69b6a496a1ee8afbd.bindPopup(popup_844b8ebfd9a44aae87fe769da3473218);
+
+            
+        
+        
+            
+
+            var marker_9b71ccc1a2c1441f9b8aec8e445cb370 = L.marker(
+                [-22.5648,17.0931],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b6e7324608864853b2c54a3820dc6bda = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9b71ccc1a2c1441f9b8aec8e445cb370.setIcon(icon_b6e7324608864853b2c54a3820dc6bda);
+            
+        
+            
+            var popup_399d58c6080d48bf93c8906658801887 = L.popup({maxWidth: '300'});
+
+            
+                var html_1cc3b2ed8e3b4915b768902bd83c9cc2 = $('         <div id="html_1cc3b2ed8e3b4915b768902bd83c9cc2"                 style="width: 100.0%; height: 100.0%;">                 Namibia $29,425</div>                 ')[0];
+                popup_399d58c6080d48bf93c8906658801887.setContent(html_1cc3b2ed8e3b4915b768902bd83c9cc2);
+            
+
+            marker_9b71ccc1a2c1441f9b8aec8e445cb370.bindPopup(popup_399d58c6080d48bf93c8906658801887);
+
+            
+        
+        
+            
+
+            var marker_69ca68e67efa4c12af8edf67139b60a9 = L.marker(
+                [-24.6544,25.9201],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_c0abc2013e1d44cd9a46e10904b14d6e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_69ca68e67efa4c12af8edf67139b60a9.setIcon(icon_c0abc2013e1d44cd9a46e10904b14d6e);
+            
+        
+            
+            var popup_4897eb3590dd4591a400d030b34c933e = L.popup({maxWidth: '300'});
+
+            
+                var html_ea8628a84501477f855bb4d2f20d56e8 = $('         <div id="html_ea8628a84501477f855bb4d2f20d56e8"                 style="width: 100.0%; height: 100.0%;">                 Botswana $8,000</div>                 ')[0];
+                popup_4897eb3590dd4591a400d030b34c933e.setContent(html_ea8628a84501477f855bb4d2f20d56e8);
+            
+
+            marker_69ca68e67efa4c12af8edf67139b60a9.bindPopup(popup_4897eb3590dd4591a400d030b34c933e);
+
+            
+        
+        
+            
+
+            var marker_11b39494e4744207a18a92478ca7da13 = L.marker(
+                [-25.3005,-57.6362],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_7f186fd8cb0e4541ae83f8d5884cbbc1 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_11b39494e4744207a18a92478ca7da13.setIcon(icon_7f186fd8cb0e4541ae83f8d5884cbbc1);
+            
+        
+            
+            var popup_d353ea7330284c429b25d11970005c9c = L.popup({maxWidth: '300'});
+
+            
+                var html_300eeb26d3084f36b48b63edb025b339 = $('         <div id="html_300eeb26d3084f36b48b63edb025b339"                 style="width: 100.0%; height: 100.0%;">                 Paraguay $30,976,025</div>                 ')[0];
+                popup_d353ea7330284c429b25d11970005c9c.setContent(html_300eeb26d3084f36b48b63edb025b339);
+            
+
+            marker_11b39494e4744207a18a92478ca7da13.bindPopup(popup_d353ea7330284c429b25d11970005c9c);
+
+            
+        
+        
+            
+
+            var marker_6b0d16599a11457d9b2bd81d20e5b582 = L.marker(
+                [-25.746,28.1871],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_59a074fd248044278e33d45c6276677f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6b0d16599a11457d9b2bd81d20e5b582.setIcon(icon_59a074fd248044278e33d45c6276677f);
+            
+        
+            
+            var popup_68d41e2d10e94950a4e56e9beacf6c1d = L.popup({maxWidth: '300'});
+
+            
+                var html_c8d7282f7bd04f9997ab26538b2d2b98 = $('         <div id="html_c8d7282f7bd04f9997ab26538b2d2b98"                 style="width: 100.0%; height: 100.0%;">                 South Africa $777,325</div>                 ')[0];
+                popup_68d41e2d10e94950a4e56e9beacf6c1d.setContent(html_c8d7282f7bd04f9997ab26538b2d2b98);
+            
+
+            marker_6b0d16599a11457d9b2bd81d20e5b582.bindPopup(popup_68d41e2d10e94950a4e56e9beacf6c1d);
+
+            
+        
+        
+            
+
+            var marker_90b9ce916fee44fab3d10e594383de92 = L.marker(
+                [-25.9664,32.5713],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_60656ff309184b759fbf8374655cdf19 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_90b9ce916fee44fab3d10e594383de92.setIcon(icon_60656ff309184b759fbf8374655cdf19);
+            
+        
+            
+            var popup_38e25e5ef2174ff3996bffab408ec4ba = L.popup({maxWidth: '300'});
+
+            
+                var html_8a22892564a1458f88573503a6321f12 = $('         <div id="html_8a22892564a1458f88573503a6321f12"                 style="width: 100.0%; height: 100.0%;">                 Mozambique $2,117,275</div>                 ')[0];
+                popup_38e25e5ef2174ff3996bffab408ec4ba.setContent(html_8a22892564a1458f88573503a6321f12);
+            
+
+            marker_90b9ce916fee44fab3d10e594383de92.bindPopup(popup_38e25e5ef2174ff3996bffab408ec4ba);
+
+            
+        
+        
+            
+
+            var marker_7b9564f087824787a309019cda7cd505 = L.marker(
+                [-29.5208,27.7167],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_3c284608a8bb46f084600c2e64f96e1d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7b9564f087824787a309019cda7cd505.setIcon(icon_3c284608a8bb46f084600c2e64f96e1d);
+            
+        
+            
+            var popup_93eaaf903a7f405a96242cd49e3ae0ac = L.popup({maxWidth: '300'});
+
+            
+                var html_3981885272ef474d8b8a46dc91b770af = $('         <div id="html_3981885272ef474d8b8a46dc91b770af"                 style="width: 100.0%; height: 100.0%;">                 Lesotho $145,900</div>                 ')[0];
+                popup_93eaaf903a7f405a96242cd49e3ae0ac.setContent(html_3981885272ef474d8b8a46dc91b770af);
+            
+
+            marker_7b9564f087824787a309019cda7cd505.bindPopup(popup_93eaaf903a7f405a96242cd49e3ae0ac);
+
+            
+        
+        
+            
+
+            var marker_9822b09e40914800986d152e31ad8539 = L.marker(
+                [-3.3784,29.3639],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_8bc43c5e211f4dd38eea030b58a3c056 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9822b09e40914800986d152e31ad8539.setIcon(icon_8bc43c5e211f4dd38eea030b58a3c056);
+            
+        
+            
+            var popup_fd0f5bd4d5df43b3b6b2aacc5745635d = L.popup({maxWidth: '300'});
+
+            
+                var html_b233e75f26d94b97a502e82ee4402a15 = $('         <div id="html_b233e75f26d94b97a502e82ee4402a15"                 style="width: 100.0%; height: 100.0%;">                 Burundi $4,170,475</div>                 ')[0];
+                popup_fd0f5bd4d5df43b3b6b2aacc5745635d.setContent(html_b233e75f26d94b97a502e82ee4402a15);
+            
+
+            marker_9822b09e40914800986d152e31ad8539.bindPopup(popup_fd0f5bd4d5df43b3b6b2aacc5745635d);
+
+            
+        
+        
+            
+
+            var marker_c15ee90b333c49e6bd7c3b0a0ca3151c = L.marker(
+                [-33.475,-70.6475],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_5d4f7e0afad04c81ac26c5609d4fdb99 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_c15ee90b333c49e6bd7c3b0a0ca3151c.setIcon(icon_5d4f7e0afad04c81ac26c5609d4fdb99);
+            
+        
+            
+            var popup_2bfce63f1c964732a7e410378986a4dc = L.popup({maxWidth: '300'});
+
+            
+                var html_04ca0c5521454a1296b2b1c30786a5db = $('         <div id="html_04ca0c5521454a1296b2b1c30786a5db"                 style="width: 100.0%; height: 100.0%;">                 Chile $1,691,650</div>                 ')[0];
+                popup_2bfce63f1c964732a7e410378986a4dc.setContent(html_04ca0c5521454a1296b2b1c30786a5db);
+            
+
+            marker_c15ee90b333c49e6bd7c3b0a0ca3151c.bindPopup(popup_2bfce63f1c964732a7e410378986a4dc);
+
+            
+        
+        
+            
+
+            var marker_aa5549f7e651453ba3f531779ddf7911 = L.marker(
+                [-4.2767,15.2662],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_852344313d8d436084bb44181dba3859 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_aa5549f7e651453ba3f531779ddf7911.setIcon(icon_852344313d8d436084bb44181dba3859);
+            
+        
+            
+            var popup_e652d66de4c24e19b9d536b0f786240e = L.popup({maxWidth: '300'});
+
+            
+                var html_6e1d11e883a944d6ae6a336ab297aa27 = $('         <div id="html_6e1d11e883a944d6ae6a336ab297aa27"                 style="width: 100.0%; height: 100.0%;">                 Congo (Rep.) $1,943,625</div>                 ')[0];
+                popup_e652d66de4c24e19b9d536b0f786240e.setContent(html_6e1d11e883a944d6ae6a336ab297aa27);
+            
+
+            marker_aa5549f7e651453ba3f531779ddf7911.bindPopup(popup_e652d66de4c24e19b9d536b0f786240e);
+
+            
+        
+        
+            
+
+            var marker_7198a3be09a34ebe80b48de85cac744b = L.marker(
+                [-4.325,15.3222],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_1af87263e42049c58df20400ca16afd4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7198a3be09a34ebe80b48de85cac744b.setIcon(icon_1af87263e42049c58df20400ca16afd4);
+            
+        
+            
+            var popup_6f690e3d2b7c4b119fadace5f8db7b11 = L.popup({maxWidth: '300'});
+
+            
+                var html_a184c4f160794babb35c628510bc620e = $('         <div id="html_a184c4f160794babb35c628510bc620e"                 style="width: 100.0%; height: 100.0%;">                 Congo (Dem. Rep.) $11,304,875</div>                 ')[0];
+                popup_6f690e3d2b7c4b119fadace5f8db7b11.setContent(html_a184c4f160794babb35c628510bc620e);
+            
+
+            marker_7198a3be09a34ebe80b48de85cac744b.bindPopup(popup_6f690e3d2b7c4b119fadace5f8db7b11);
+
+            
+        
+        
+            
+
+            var marker_4693670e38664fc5889072bdaa2aeb26 = L.marker(
+                [-6.17486,35.7382],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_d6826478cab744dabfbe1b11478c7af3 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4693670e38664fc5889072bdaa2aeb26.setIcon(icon_d6826478cab744dabfbe1b11478c7af3);
+            
+        
+            
+            var popup_0ba6e0a499834f37bef3c50d37e1d2ab = L.popup({maxWidth: '300'});
+
+            
+                var html_f7cbcf27266e4dafabd27223afd99a33 = $('         <div id="html_f7cbcf27266e4dafabd27223afd99a33"                 style="width: 100.0%; height: 100.0%;">                 Tanzania $9,349,275</div>                 ')[0];
+                popup_0ba6e0a499834f37bef3c50d37e1d2ab.setContent(html_f7cbcf27266e4dafabd27223afd99a33);
+            
+
+            marker_4693670e38664fc5889072bdaa2aeb26.bindPopup(popup_0ba6e0a499834f37bef3c50d37e1d2ab);
+
+            
+        
+        
+            
+
+            var marker_776f7de888594cf481f93a9283e9a03e = L.marker(
+                [-6.19752,106.83],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_3e0647d7eddc4416b04bf15d5e55acba = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_776f7de888594cf481f93a9283e9a03e.setIcon(icon_3e0647d7eddc4416b04bf15d5e55acba);
+            
+        
+            
+            var popup_394061e58bf948739005eeb82c799207 = L.popup({maxWidth: '300'});
+
+            
+                var html_f49eb821d5de417fb16acb40138ff722 = $('         <div id="html_f49eb821d5de417fb16acb40138ff722"                 style="width: 100.0%; height: 100.0%;">                 Indonesia $5,278,375</div>                 ')[0];
+                popup_394061e58bf948739005eeb82c799207.setContent(html_f49eb821d5de417fb16acb40138ff722);
+            
+
+            marker_776f7de888594cf481f93a9283e9a03e.bindPopup(popup_394061e58bf948739005eeb82c799207);
+
+            
+        
+        
+            
+
+            var marker_ca05e827e055454f86bc7527e3cfe04e = L.marker(
+                [-8.56667,125.567],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b0d50a4cc9d04d55b83d9bc749b55dcb = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ca05e827e055454f86bc7527e3cfe04e.setIcon(icon_b0d50a4cc9d04d55b83d9bc749b55dcb);
+            
+        
+            
+            var popup_678f0460f47a4cbe9e62eb68076c30aa = L.popup({maxWidth: '300'});
+
+            
+                var html_5edcb3e508e64c0ca2b86835ba14567f = $('         <div id="html_5edcb3e508e64c0ca2b86835ba14567f"                 style="width: 100.0%; height: 100.0%;">                 Timor-Leste $2,685,150</div>                 ')[0];
+                popup_678f0460f47a4cbe9e62eb68076c30aa.setContent(html_5edcb3e508e64c0ca2b86835ba14567f);
+            
+
+            marker_ca05e827e055454f86bc7527e3cfe04e.bindPopup(popup_678f0460f47a4cbe9e62eb68076c30aa);
+
+            
+        
+        
+            
+
+            var marker_0a5bd8c0f2e14b4e8f0a4cdbec9347c0 = L.marker(
+                [-9.42676,159.949],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_57965e74b0394f738224b8f0e30ee6fc = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0a5bd8c0f2e14b4e8f0a4cdbec9347c0.setIcon(icon_57965e74b0394f738224b8f0e30ee6fc);
+            
+        
+            
+            var popup_85a3de63194a466381e1410de0f0dc0e = L.popup({maxWidth: '300'});
+
+            
+                var html_6bb36461651f4fa78bac1ae76eb18a3b = $('         <div id="html_6bb36461651f4fa78bac1ae76eb18a3b"                 style="width: 100.0%; height: 100.0%;">                 Solomon Islands $163,450</div>                 ')[0];
+                popup_85a3de63194a466381e1410de0f0dc0e.setContent(html_6bb36461651f4fa78bac1ae76eb18a3b);
+            
+
+            marker_0a5bd8c0f2e14b4e8f0a4cdbec9347c0.bindPopup(popup_85a3de63194a466381e1410de0f0dc0e);
+
+            
+        
+        
+            
+
+            var marker_110133bdfcec419e91b50ef3d6a048d7 = L.marker(
+                [-9.47357,147.194],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_0f7fbe6823fe4816aa921f05f8f012bf = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_110133bdfcec419e91b50ef3d6a048d7.setIcon(icon_0f7fbe6823fe4816aa921f05f8f012bf);
+            
+        
+            
+            var popup_ee102e7c0b4a405aa3b5ac8e6198351d = L.popup({maxWidth: '300'});
+
+            
+                var html_c79e3fe23c17406ba34d27d3225569b5 = $('         <div id="html_c79e3fe23c17406ba34d27d3225569b5"                 style="width: 100.0%; height: 100.0%;">                 Papua New Guinea $50,000</div>                 ')[0];
+                popup_ee102e7c0b4a405aa3b5ac8e6198351d.setContent(html_c79e3fe23c17406ba34d27d3225569b5);
+            
+
+            marker_110133bdfcec419e91b50ef3d6a048d7.bindPopup(popup_ee102e7c0b4a405aa3b5ac8e6198351d);
+
+            
+        
+        
+            
+
+            var marker_3ba7b129a1504a1e8ce9ed2189dc37bd = L.marker(
+                [0.314269,32.5729],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_9afe8fec76434eaabffb4f214bfde0f3 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_3ba7b129a1504a1e8ce9ed2189dc37bd.setIcon(icon_9afe8fec76434eaabffb4f214bfde0f3);
+            
+        
+            
+            var popup_bab0526f32554394bedd04df5d4ba086 = L.popup({maxWidth: '300'});
+
+            
+                var html_87fdc987e35e4888aa509ab5b5e07537 = $('         <div id="html_87fdc987e35e4888aa509ab5b5e07537"                 style="width: 100.0%; height: 100.0%;">                 Uganda $18,948,350</div>                 ')[0];
+                popup_bab0526f32554394bedd04df5d4ba086.setContent(html_87fdc987e35e4888aa509ab5b5e07537);
+            
+
+            marker_3ba7b129a1504a1e8ce9ed2189dc37bd.bindPopup(popup_bab0526f32554394bedd04df5d4ba086);
+
+            
+        
+        
+            
+
+            var marker_055b3100bf084156ba25dbc35d36a3f9 = L.marker(
+                [11.5556,104.874],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_e3ef30a735534e31bb1cea1f0778bf31 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_055b3100bf084156ba25dbc35d36a3f9.setIcon(icon_e3ef30a735534e31bb1cea1f0778bf31);
+            
+        
+            
+            var popup_2d58185771854b21a04a1847ee5dd528 = L.popup({maxWidth: '300'});
+
+            
+                var html_5301105624ee49b1ae7dd8e5401a7fa2 = $('         <div id="html_5301105624ee49b1ae7dd8e5401a7fa2"                 style="width: 100.0%; height: 100.0%;">                 Cambodia $20,801,175</div>                 ')[0];
+                popup_2d58185771854b21a04a1847ee5dd528.setContent(html_5301105624ee49b1ae7dd8e5401a7fa2);
+            
+
+            marker_055b3100bf084156ba25dbc35d36a3f9.bindPopup(popup_2d58185771854b21a04a1847ee5dd528);
+
+            
+        
+        
+            
+
+            var marker_f608eac75224474382b57db312cce007 = L.marker(
+                [12.1475,-86.2734],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_2495aed5fb0c40268b7fd251e7a35b46 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f608eac75224474382b57db312cce007.setIcon(icon_2495aed5fb0c40268b7fd251e7a35b46);
+            
+        
+            
+            var popup_dc77f30d553643de922a1399074009bd = L.popup({maxWidth: '300'});
+
+            
+                var html_aa5866e183154096b1a1e41aa789154e = $('         <div id="html_aa5866e183154096b1a1e41aa789154e"                 style="width: 100.0%; height: 100.0%;">                 Nicaragua $15,076,575</div>                 ')[0];
+                popup_dc77f30d553643de922a1399074009bd.setContent(html_aa5866e183154096b1a1e41aa789154e);
+            
+
+            marker_f608eac75224474382b57db312cce007.bindPopup(popup_dc77f30d553643de922a1399074009bd);
+
+            
+        
+        
+            
+
+            var marker_7f744a1524984b91bba0c792e823a39e = L.marker(
+                [12.3605,-1.53395],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_86b09d1a7b294491b11f7ec63b476f62 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7f744a1524984b91bba0c792e823a39e.setIcon(icon_86b09d1a7b294491b11f7ec63b476f62);
+            
+        
+            
+            var popup_b67b8bc5f8b14412be1783545d3832b4 = L.popup({maxWidth: '300'});
+
+            
+                var html_0832e919703e43f483c3eb027df1f21f = $('         <div id="html_0832e919703e43f483c3eb027df1f21f"                 style="width: 100.0%; height: 100.0%;">                 Burkina Faso $2,575,525</div>                 ')[0];
+                popup_b67b8bc5f8b14412be1783545d3832b4.setContent(html_0832e919703e43f483c3eb027df1f21f);
+            
+
+            marker_7f744a1524984b91bba0c792e823a39e.bindPopup(popup_b67b8bc5f8b14412be1783545d3832b4);
+
+            
+        
+        
+            
+
+            var marker_204e18e6afb7400583bce26bfeab546b = L.marker(
+                [13.2035,-61.2653],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_56b7f2a7485248819cb83b61ba1cf01c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_204e18e6afb7400583bce26bfeab546b.setIcon(icon_56b7f2a7485248819cb83b61ba1cf01c);
+            
+        
+            
+            var popup_e201b375b0d247daafdea54a55c93fcb = L.popup({maxWidth: '300'});
+
+            
+                var html_401fa8b8237645a59ef80f0192651aed = $('         <div id="html_401fa8b8237645a59ef80f0192651aed"                 style="width: 100.0%; height: 100.0%;">                 St Vincent $49,225</div>                 ')[0];
+                popup_e201b375b0d247daafdea54a55c93fcb.setContent(html_401fa8b8237645a59ef80f0192651aed);
+            
+
+            marker_204e18e6afb7400583bce26bfeab546b.bindPopup(popup_e201b375b0d247daafdea54a55c93fcb);
+
+            
+        
+        
+            
+
+            var marker_154e7cfc394140aca3fb3c266673b013 = L.marker(
+                [13.4443,144.794],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_a32766f899304a54af73fa450addbc00 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_154e7cfc394140aca3fb3c266673b013.setIcon(icon_a32766f899304a54af73fa450addbc00);
+            
+        
+            
+            var popup_4709f28bb15d4bec859c373d380923b2 = L.popup({maxWidth: '300'});
+
+            
+                var html_7eb8b40139ed435294febb579f5d57fb = $('         <div id="html_7eb8b40139ed435294febb579f5d57fb"                 style="width: 100.0%; height: 100.0%;">                 Guam $8,000</div>                 ')[0];
+                popup_4709f28bb15d4bec859c373d380923b2.setContent(html_7eb8b40139ed435294febb579f5d57fb);
+            
+
+            marker_154e7cfc394140aca3fb3c266673b013.bindPopup(popup_4709f28bb15d4bec859c373d380923b2);
+
+            
+        
+        
+            
+
+            var marker_59417b54e5774f118ac29c44a8885956 = L.marker(
+                [13.5667,-7.50034],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_c0e97e31a2dc44c5aaa1e48fc1533768 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_59417b54e5774f118ac29c44a8885956.setIcon(icon_c0e97e31a2dc44c5aaa1e48fc1533768);
+            
+        
+            
+            var popup_9ae21dce72ce47ac86d868bbec2481a9 = L.popup({maxWidth: '300'});
+
+            
+                var html_3f219dce5c264b4eb0d0277dc8966879 = $('         <div id="html_3f219dce5c264b4eb0d0277dc8966879"                 style="width: 100.0%; height: 100.0%;">                 Mali $9,571,500</div>                 ')[0];
+                popup_9ae21dce72ce47ac86d868bbec2481a9.setContent(html_3f219dce5c264b4eb0d0277dc8966879);
+            
+
+            marker_59417b54e5774f118ac29c44a8885956.bindPopup(popup_9ae21dce72ce47ac86d868bbec2481a9);
+
+            
+        
+        
+            
+
+            var marker_4d0bcf4f78bd4248a7f4e7d1d3b71d76 = L.marker(
+                [13.7034,-89.2073],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b583b16f77594127b5565ab05762cc68 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4d0bcf4f78bd4248a7f4e7d1d3b71d76.setIcon(icon_b583b16f77594127b5565ab05762cc68);
+            
+        
+            
+            var popup_a79c13117dd144a79f02f70aac5117c6 = L.popup({maxWidth: '300'});
+
+            
+                var html_9f61d9d98959463e9e6c2e68eb4f14a3 = $('         <div id="html_9f61d9d98959463e9e6c2e68eb4f14a3"                 style="width: 100.0%; height: 100.0%;">                 El Salvador $28,780,625</div>                 ')[0];
+                popup_a79c13117dd144a79f02f70aac5117c6.setContent(html_9f61d9d98959463e9e6c2e68eb4f14a3);
+            
+
+            marker_4d0bcf4f78bd4248a7f4e7d1d3b71d76.bindPopup(popup_a79c13117dd144a79f02f70aac5117c6);
+
+            
+        
+        
+            
+
+            var marker_95b3cfea8a90419b882f897826effe6a = L.marker(
+                [13.7308,100.521],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_e656fec47a0b481bb7aa77cb582d28cd = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_95b3cfea8a90419b882f897826effe6a.setIcon(icon_e656fec47a0b481bb7aa77cb582d28cd);
+            
+        
+            
+            var popup_245bef78c5544f7ba1c8a7b3aa9f8135 = L.popup({maxWidth: '300'});
+
+            
+                var html_e1f9a262ba9744abac9d9ac33571001f = $('         <div id="html_e1f9a262ba9744abac9d9ac33571001f"                 style="width: 100.0%; height: 100.0%;">                 Thailand $209,675</div>                 ')[0];
+                popup_245bef78c5544f7ba1c8a7b3aa9f8135.setContent(html_e1f9a262ba9744abac9d9ac33571001f);
+            
+
+            marker_95b3cfea8a90419b882f897826effe6a.bindPopup(popup_245bef78c5544f7ba1c8a7b3aa9f8135);
+
+            
+        
+        
+            
+
+            var marker_13f088dd3adf4b819e4b17ea4582d217 = L.marker(
+                [14.5515,121.035],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_10df7beb9cef4d00a8e5343b6c7b555a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_13f088dd3adf4b819e4b17ea4582d217.setIcon(icon_10df7beb9cef4d00a8e5343b6c7b555a);
+            
+        
+            
+            var popup_71809f877a584cb7ae16533633d7596f = L.popup({maxWidth: '300'});
+
+            
+                var html_6c87920536dd42c0b78cd8f6385fcc5e = $('         <div id="html_6c87920536dd42c0b78cd8f6385fcc5e"                 style="width: 100.0%; height: 100.0%;">                 Philippines $57,766,325</div>                 ')[0];
+                popup_71809f877a584cb7ae16533633d7596f.setContent(html_6c87920536dd42c0b78cd8f6385fcc5e);
+            
+
+            marker_13f088dd3adf4b819e4b17ea4582d217.bindPopup(popup_71809f877a584cb7ae16533633d7596f);
+
+            
+        
+        
+            
+
+            var marker_449fbd55b62c424096615c699a34103f = L.marker(
+                [14.6248,-90.5328],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_d8bbbf4f6dba48deb57b502df0d515b0 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_449fbd55b62c424096615c699a34103f.setIcon(icon_d8bbbf4f6dba48deb57b502df0d515b0);
+            
+        
+            
+            var popup_5d951e107a4a4726834a3b068c7468ff = L.popup({maxWidth: '300'});
+
+            
+                var html_9ded45e49d074dbfaab3e9a1ef11b935 = $('         <div id="html_9ded45e49d074dbfaab3e9a1ef11b935"                 style="width: 100.0%; height: 100.0%;">                 Guatemala $10,636,500</div>                 ')[0];
+                popup_5d951e107a4a4726834a3b068c7468ff.setContent(html_9ded45e49d074dbfaab3e9a1ef11b935);
+            
+
+            marker_449fbd55b62c424096615c699a34103f.bindPopup(popup_5d951e107a4a4726834a3b068c7468ff);
+
+            
+        
+        
+            
+
+            var marker_36005f9f1d2d4ea3893753840a6ffac6 = L.marker(
+                [14.7247,-17.4734],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_92d0703fc848495b9d55829699d8780d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_36005f9f1d2d4ea3893753840a6ffac6.setIcon(icon_92d0703fc848495b9d55829699d8780d);
+            
+        
+            
+            var popup_56a441ee5e54478faeaac800711117c7 = L.popup({maxWidth: '300'});
+
+            
+                var html_220eaf0bad414494931cbff3874a7e8b = $('         <div id="html_220eaf0bad414494931cbff3874a7e8b"                 style="width: 100.0%; height: 100.0%;">                 Senegal $9,620,550</div>                 ')[0];
+                popup_56a441ee5e54478faeaac800711117c7.setContent(html_220eaf0bad414494931cbff3874a7e8b);
+            
+
+            marker_36005f9f1d2d4ea3893753840a6ffac6.bindPopup(popup_56a441ee5e54478faeaac800711117c7);
+
+            
+        
+        
+            
+
+            var marker_426962650d1d4d4eb64782998b5c7755 = L.marker(
+                [15.1333,-87.4667],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b6f554c142244475b1c8a30952a80931 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_426962650d1d4d4eb64782998b5c7755.setIcon(icon_b6f554c142244475b1c8a30952a80931);
+            
+        
+            
+            var popup_f0fba7f320934d53a9e23debee5b6e13 = L.popup({maxWidth: '300'});
+
+            
+                var html_6aba909237fb4f1daa5e353e0d0de10a = $('         <div id="html_6aba909237fb4f1daa5e353e0d0de10a"                 style="width: 100.0%; height: 100.0%;">                 Honduras $8,001,650</div>                 ')[0];
+                popup_f0fba7f320934d53a9e23debee5b6e13.setContent(html_6aba909237fb4f1daa5e353e0d0de10a);
+            
+
+            marker_426962650d1d4d4eb64782998b5c7755.bindPopup(popup_f0fba7f320934d53a9e23debee5b6e13);
+
+            
+        
+        
+            
+
+            var marker_878ae03afecc4324bb5cfa9cb74eb91e = L.marker(
+                [15.352,44.2075],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_69047c400fed45e7b779e8d90bea3362 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_878ae03afecc4324bb5cfa9cb74eb91e.setIcon(icon_69047c400fed45e7b779e8d90bea3362);
+            
+        
+            
+            var popup_777467e263c94ebfb5a5b72dad796857 = L.popup({maxWidth: '300'});
+
+            
+                var html_c4f76abbc01c4a03aca8d3e11d105e17 = $('         <div id="html_c4f76abbc01c4a03aca8d3e11d105e17"                 style="width: 100.0%; height: 100.0%;">                 Yemen $3,261,575</div>                 ')[0];
+                popup_777467e263c94ebfb5a5b72dad796857.setContent(html_c4f76abbc01c4a03aca8d3e11d105e17);
+            
+
+            marker_878ae03afecc4324bb5cfa9cb74eb91e.bindPopup(popup_777467e263c94ebfb5a5b72dad796857);
+
+            
+        
+        
+            
+
+            var marker_1fcda918806840e990609c6355f17e1e = L.marker(
+                [17.2534,-88.7713],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_ae47a04c567245928f2bb080b534199c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1fcda918806840e990609c6355f17e1e.setIcon(icon_ae47a04c567245928f2bb080b534199c);
+            
+        
+            
+            var popup_a5d27893cd1949a0bd539f808d5f17e4 = L.popup({maxWidth: '300'});
+
+            
+                var html_644cd2b67c3241a09b84952f402d9a3a = $('         <div id="html_644cd2b67c3241a09b84952f402d9a3a"                 style="width: 100.0%; height: 100.0%;">                 Belize $145,975</div>                 ')[0];
+                popup_a5d27893cd1949a0bd539f808d5f17e4.setContent(html_644cd2b67c3241a09b84952f402d9a3a);
+            
+
+            marker_1fcda918806840e990609c6355f17e1e.bindPopup(popup_a5d27893cd1949a0bd539f808d5f17e4);
+
+            
+        
+        
+            
+
+            var marker_80fa2f4076e14246b485b0d3fa7fd9b9 = L.marker(
+                [18.23,-66.0],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_f96396b0d9904a669b959d44493f147e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_80fa2f4076e14246b485b0d3fa7fd9b9.setIcon(icon_f96396b0d9904a669b959d44493f147e);
+            
+        
+            
+            var popup_3023a669a36240e98f70c949cfa16880 = L.popup({maxWidth: '300'});
+
+            
+                var html_6aadf56856014f938101f90211b96a35 = $('         <div id="html_6aadf56856014f938101f90211b96a35"                 style="width: 100.0%; height: 100.0%;">                 Puerto Rico $135,300</div>                 ')[0];
+                popup_3023a669a36240e98f70c949cfa16880.setContent(html_6aadf56856014f938101f90211b96a35);
+            
+
+            marker_80fa2f4076e14246b485b0d3fa7fd9b9.bindPopup(popup_3023a669a36240e98f70c949cfa16880);
+
+            
+        
+        
+            
+
+            var marker_c8a237bfe8994d1fbc2cea1693264184 = L.marker(
+                [18.2367,-15.9824],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_15122944b4b743e88798b991d461d9c0 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_c8a237bfe8994d1fbc2cea1693264184.setIcon(icon_15122944b4b743e88798b991d461d9c0);
+            
+        
+            
+            var popup_06f0f5f6efc64abbb80ad3ff89894017 = L.popup({maxWidth: '300'});
+
+            
+                var html_59b4d1c3c9bd40018781871c60c6c6fa = $('         <div id="html_59b4d1c3c9bd40018781871c60c6c6fa"                 style="width: 100.0%; height: 100.0%;">                 Mauritania $15,000</div>                 ')[0];
+                popup_06f0f5f6efc64abbb80ad3ff89894017.setContent(html_59b4d1c3c9bd40018781871c60c6c6fa);
+            
+
+            marker_c8a237bfe8994d1fbc2cea1693264184.bindPopup(popup_06f0f5f6efc64abbb80ad3ff89894017);
+
+            
+        
+        
+            
+
+            var marker_541e2f54792047908758028554ab99fd = L.marker(
+                [18.479,-69.8908],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_28b1e932d482437ba919e108b4fc3a06 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_541e2f54792047908758028554ab99fd.setIcon(icon_28b1e932d482437ba919e108b4fc3a06);
+            
+        
+            
+            var popup_610345f15d9b41a89b6b74c7bcbbcd54 = L.popup({maxWidth: '300'});
+
+            
+                var html_f86367cdbb3a4762abb384337ac9edb1 = $('         <div id="html_f86367cdbb3a4762abb384337ac9edb1"                 style="width: 100.0%; height: 100.0%;">                 Dominican Republic $3,594,100</div>                 ')[0];
+                popup_610345f15d9b41a89b6b74c7bcbbcd54.setContent(html_f86367cdbb3a4762abb384337ac9edb1);
+            
+
+            marker_541e2f54792047908758028554ab99fd.bindPopup(popup_610345f15d9b41a89b6b74c7bcbbcd54);
+
+            
+        
+        
+            
+
+            var marker_ba69ec3425944994bc9b1661879ec5df = L.marker(
+                [18.5392,-72.3288],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_6ea5742d63b3459090c3a70cfdfe3179 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ba69ec3425944994bc9b1661879ec5df.setIcon(icon_6ea5742d63b3459090c3a70cfdfe3179);
+            
+        
+            
+            var popup_73f56a22d32d461d806ece96eb3fd380 = L.popup({maxWidth: '300'});
+
+            
+                var html_77981261b871470f8c15302ef4dd6b75 = $('         <div id="html_77981261b871470f8c15302ef4dd6b75"                 style="width: 100.0%; height: 100.0%;">                 Haiti $2,491,750</div>                 ')[0];
+                popup_73f56a22d32d461d806ece96eb3fd380.setContent(html_77981261b871470f8c15302ef4dd6b75);
+            
+
+            marker_ba69ec3425944994bc9b1661879ec5df.bindPopup(popup_73f56a22d32d461d806ece96eb3fd380);
+
+            
+        
+        
+            
+
+            var marker_84523a9dff7343929557bb8101410445 = L.marker(
+                [18.5826,102.177],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_0edd41af43924e0bb92aa7c3f2eae642 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_84523a9dff7343929557bb8101410445.setIcon(icon_0edd41af43924e0bb92aa7c3f2eae642);
+            
+        
+            
+            var popup_651b971247bb4f2abed69f07e857458b = L.popup({maxWidth: '300'});
+
+            
+                var html_22f6bf9064394c5795a6515d9b204c6e = $('         <div id="html_22f6bf9064394c5795a6515d9b204c6e"                 style="width: 100.0%; height: 100.0%;">                 Lao PDR $863,800</div>                 ')[0];
+                popup_651b971247bb4f2abed69f07e857458b.setContent(html_22f6bf9064394c5795a6515d9b204c6e);
+            
+
+            marker_84523a9dff7343929557bb8101410445.bindPopup(popup_651b971247bb4f2abed69f07e857458b);
+
+            
+        
+        
+            
+
+            var marker_62803cbe38184920924ede0c122d260b = L.marker(
+                [19.427,-99.1276],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_56c833d1260c4f7c8fdf34790d94c15a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_62803cbe38184920924ede0c122d260b.setIcon(icon_56c833d1260c4f7c8fdf34790d94c15a);
+            
+        
+            
+            var popup_65fd5505e4ff4bafb54c3b51db0ce2fd = L.popup({maxWidth: '300'});
+
+            
+                var html_3423997a672b4a76804bc25500db8652 = $('         <div id="html_3423997a672b4a76804bc25500db8652"                 style="width: 100.0%; height: 100.0%;">                 Mexico $14,310,925</div>                 ')[0];
+                popup_65fd5505e4ff4bafb54c3b51db0ce2fd.setContent(html_3423997a672b4a76804bc25500db8652);
+            
+
+            marker_62803cbe38184920924ede0c122d260b.bindPopup(popup_65fd5505e4ff4bafb54c3b51db0ce2fd);
+
+            
+        
+        
+            
+
+            var marker_4d837efbacb74dc998b04c70786a10b3 = L.marker(
+                [2.07515,45.3254],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_57f52b2c6803494b807394b8befb87a4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4d837efbacb74dc998b04c70786a10b3.setIcon(icon_57f52b2c6803494b807394b8befb87a4);
+            
+        
+            
+            var popup_5d5adb1c067b4011b214725b20f87935 = L.popup({maxWidth: '300'});
+
+            
+                var html_4225ab1abc9240ec9db1ac2e6b918e26 = $('         <div id="html_4225ab1abc9240ec9db1ac2e6b918e26"                 style="width: 100.0%; height: 100.0%;">                 Somalia $286,425</div>                 ')[0];
+                popup_5d5adb1c067b4011b214725b20f87935.setContent(html_4225ab1abc9240ec9db1ac2e6b918e26);
+            
+
+            marker_4d837efbacb74dc998b04c70786a10b3.bindPopup(popup_5d5adb1c067b4011b214725b20f87935);
+
+            
+        
+        
+            
+
+            var marker_739c2e82429345f79792e19e52519f93 = L.marker(
+                [21.0069,105.825],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_45a8b22384c045f09581077fb468d4c8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_739c2e82429345f79792e19e52519f93.setIcon(icon_45a8b22384c045f09581077fb468d4c8);
+            
+        
+            
+            var popup_609b85127c774d34b242ea7f16306839 = L.popup({maxWidth: '300'});
+
+            
+                var html_60ff02e145654d3eacace08a02b3b1e6 = $('         <div id="html_60ff02e145654d3eacace08a02b3b1e6"                 style="width: 100.0%; height: 100.0%;">                 Vietnam $13,879,725</div>                 ')[0];
+                popup_609b85127c774d34b242ea7f16306839.setContent(html_60ff02e145654d3eacace08a02b3b1e6);
+            
+
+            marker_739c2e82429345f79792e19e52519f93.bindPopup(popup_609b85127c774d34b242ea7f16306839);
+
+            
+        
+        
+            
+
+            var marker_748af307293f4355981f826ea4c933a0 = L.marker(
+                [21.914,95.9562],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_ae7bda4a62bb4963a3fd3193c90fe607 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_748af307293f4355981f826ea4c933a0.setIcon(icon_ae7bda4a62bb4963a3fd3193c90fe607);
+            
+        
+            
+            var popup_4c8125549b96439fa090a86d7409fb5e = L.popup({maxWidth: '300'});
+
+            
+                var html_3aa7d4c8270740dc8caf5f4e257fa80f = $('         <div id="html_3aa7d4c8270740dc8caf5f4e257fa80f"                 style="width: 100.0%; height: 100.0%;">                 Myanmar (Burma) $1,785,750</div>                 ')[0];
+                popup_4c8125549b96439fa090a86d7409fb5e.setContent(html_3aa7d4c8270740dc8caf5f4e257fa80f);
+            
+
+            marker_748af307293f4355981f826ea4c933a0.bindPopup(popup_4c8125549b96439fa090a86d7409fb5e);
+
+            
+        
+        
+            
+
+            var marker_6375ec0d34384c3eaaea0c6b157ae0f4 = L.marker(
+                [27.6939,85.3157],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_b0f5101765d44a96a0a03f1c2f7df9e4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6375ec0d34384c3eaaea0c6b157ae0f4.setIcon(icon_b0f5101765d44a96a0a03f1c2f7df9e4);
+            
+        
+            
+            var popup_b369fc04e4694d60ae3e3d0af59d50b1 = L.popup({maxWidth: '300'});
+
+            
+                var html_6b0091ee88374c8e80cec06a377f2707 = $('         <div id="html_6b0091ee88374c8e80cec06a377f2707"                 style="width: 100.0%; height: 100.0%;">                 Nepal $307,675</div>                 ')[0];
+                popup_b369fc04e4694d60ae3e3d0af59d50b1.setContent(html_6b0091ee88374c8e80cec06a377f2707);
+            
+
+            marker_6375ec0d34384c3eaaea0c6b157ae0f4.bindPopup(popup_b369fc04e4694d60ae3e3d0af59d50b1);
+
+            
+        
+        
+            
+
+            var marker_10370e4c99954e649a995580bcefd9b2 = L.marker(
+                [28.6353,77.225],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_0fa7f70f545c4b6c8249e6b8631e1cb5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_10370e4c99954e649a995580bcefd9b2.setIcon(icon_0fa7f70f545c4b6c8249e6b8631e1cb5);
+            
+        
+            
+            var popup_2874a6ce20de4c7780b146f9e7dc3c5e = L.popup({maxWidth: '300'});
+
+            
+                var html_9e25e7af6938472ea0bc242a3cef1ced = $('         <div id="html_9e25e7af6938472ea0bc242a3cef1ced"                 style="width: 100.0%; height: 100.0%;">                 India $6,811,750</div>                 ')[0];
+                popup_2874a6ce20de4c7780b146f9e7dc3c5e.setContent(html_9e25e7af6938472ea0bc242a3cef1ced);
+            
+
+            marker_10370e4c99954e649a995580bcefd9b2.bindPopup(popup_2874a6ce20de4c7780b146f9e7dc3c5e);
+
+            
+        
+        
+            
+
+            var marker_aa84704dd98843689aa256514146b341 = L.marker(
+                [3.8721,11.5174],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_83854e067c564f43befb99e50680467d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_aa84704dd98843689aa256514146b341.setIcon(icon_83854e067c564f43befb99e50680467d);
+            
+        
+            
+            var popup_14e61eca97e54ffaac17a1e998cb1d72 = L.popup({maxWidth: '300'});
+
+            
+                var html_d44c998a5a9a4dc19dc8646cdca488d3 = $('         <div id="html_d44c998a5a9a4dc19dc8646cdca488d3"                 style="width: 100.0%; height: 100.0%;">                 Cameroon $899,400</div>                 ')[0];
+                popup_14e61eca97e54ffaac17a1e998cb1d72.setContent(html_d44c998a5a9a4dc19dc8646cdca488d3);
+            
+
+            marker_aa84704dd98843689aa256514146b341.bindPopup(popup_14e61eca97e54ffaac17a1e998cb1d72);
+
+            
+        
+        
+            
+
+            var marker_324f9ec0c4514f3db079c4348c365fa7 = L.marker(
+                [30.0982,31.2461],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_4e9d7acf879442b28db033ef6c613703 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_324f9ec0c4514f3db079c4348c365fa7.setIcon(icon_4e9d7acf879442b28db033ef6c613703);
+            
+        
+            
+            var popup_990139886f6d41168825abf45fa4d9ae = L.popup({maxWidth: '300'});
+
+            
+                var html_b397dc04bcc94af38cc41d6ffd100395 = $('         <div id="html_b397dc04bcc94af38cc41d6ffd100395"                 style="width: 100.0%; height: 100.0%;">                 Egypt $748,300</div>                 ')[0];
+                popup_990139886f6d41168825abf45fa4d9ae.setContent(html_b397dc04bcc94af38cc41d6ffd100395);
+            
+
+            marker_324f9ec0c4514f3db079c4348c365fa7.bindPopup(popup_990139886f6d41168825abf45fa4d9ae);
+
+            
+        
+        
+            
+
+            var marker_e0992b6b47554dc08b993cedb3462dab = L.marker(
+                [30.5167,72.8],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_6890958dd197495080be84e5e5c994e2 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e0992b6b47554dc08b993cedb3462dab.setIcon(icon_6890958dd197495080be84e5e5c994e2);
+            
+        
+            
+            var popup_dcf2f41794a240a0b724a744393d1f4d = L.popup({maxWidth: '300'});
+
+            
+                var html_a562d3b2facc4ccd98d4de4e685f4b0d = $('         <div id="html_a562d3b2facc4ccd98d4de4e685f4b0d"                 style="width: 100.0%; height: 100.0%;">                 Pakistan $13,459,725</div>                 ')[0];
+                popup_dcf2f41794a240a0b724a744393d1f4d.setContent(html_a562d3b2facc4ccd98d4de4e685f4b0d);
+            
+
+            marker_e0992b6b47554dc08b993cedb3462dab.bindPopup(popup_dcf2f41794a240a0b724a744393d1f4d);
+
+            
+        
+        
+            
+
+            var marker_2b910600ea1c48ada74f2685179f4b0f = L.marker(
+                [31.7717,35.2035],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_952eccb248fd418d903168c51a11a59f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_2b910600ea1c48ada74f2685179f4b0f.setIcon(icon_952eccb248fd418d903168c51a11a59f);
+            
+        
+            
+            var popup_d39bd67237724bceb777c444571e5067 = L.popup({maxWidth: '300'});
+
+            
+                var html_1a8e15ce8a0b420084e5e3900b670df3 = $('         <div id="html_1a8e15ce8a0b420084e5e3900b670df3"                 style="width: 100.0%; height: 100.0%;">                 Israel $1,226,350</div>                 ')[0];
+                popup_d39bd67237724bceb777c444571e5067.setContent(html_1a8e15ce8a0b420084e5e3900b670df3);
+            
+
+            marker_2b910600ea1c48ada74f2685179f4b0f.bindPopup(popup_d39bd67237724bceb777c444571e5067);
+
+            
+        
+        
+            
+
+            var marker_2d37768dd3074e56804efac19d2ed7fc = L.marker(
+                [31.9497,35.9263],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_497009fea14047e4b321aff60dcbfc8b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_2d37768dd3074e56804efac19d2ed7fc.setIcon(icon_497009fea14047e4b321aff60dcbfc8b);
+            
+        
+            
+            var popup_5a5d7ac330d8417bb5f136a1f7b6cca5 = L.popup({maxWidth: '300'});
+
+            
+                var html_d2dcc1e376de46fe8b8515cda2e34d5d = $('         <div id="html_d2dcc1e376de46fe8b8515cda2e34d5d"                 style="width: 100.0%; height: 100.0%;">                 Jordan $8,031,650</div>                 ')[0];
+                popup_5a5d7ac330d8417bb5f136a1f7b6cca5.setContent(html_d2dcc1e376de46fe8b8515cda2e34d5d);
+            
+
+            marker_2d37768dd3074e56804efac19d2ed7fc.bindPopup(popup_5a5d7ac330d8417bb5f136a1f7b6cca5);
+
+            
+        
+        
+            
+
+            var marker_668f39f9516b426e8950e4f015228fc9 = L.marker(
+                [33.3302,44.394],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_12a136a978cc4d2bbecd04f452643415 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_668f39f9516b426e8950e4f015228fc9.setIcon(icon_12a136a978cc4d2bbecd04f452643415);
+            
+        
+            
+            var popup_63912673eaa94db6b055b3e43ddf123e = L.popup({maxWidth: '300'});
+
+            
+                var html_15dfc879ac82452496208414eef29c88 = $('         <div id="html_15dfc879ac82452496208414eef29c88"                 style="width: 100.0%; height: 100.0%;">                 Iraq $7,085,550</div>                 ')[0];
+                popup_63912673eaa94db6b055b3e43ddf123e.setContent(html_15dfc879ac82452496208414eef29c88);
+            
+
+            marker_668f39f9516b426e8950e4f015228fc9.bindPopup(popup_63912673eaa94db6b055b3e43ddf123e);
+
+            
+        
+        
+            
+
+            var marker_53ab85b2208743968ee42f32affdd686 = L.marker(
+                [33.8872,35.5134],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_6700da52b234494982574b4037a3d13f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_53ab85b2208743968ee42f32affdd686.setIcon(icon_6700da52b234494982574b4037a3d13f);
+            
+        
+            
+            var popup_24dcac5ee06f44fab888819e3d9a5e58 = L.popup({maxWidth: '300'});
+
+            
+                var html_df52417ebe86496f983d333683965227 = $('         <div id="html_df52417ebe86496f983d333683965227"                 style="width: 100.0%; height: 100.0%;">                 Lebanon $12,712,925</div>                 ')[0];
+                popup_24dcac5ee06f44fab888819e3d9a5e58.setContent(html_df52417ebe86496f983d333683965227);
+            
+
+            marker_53ab85b2208743968ee42f32affdd686.bindPopup(popup_24dcac5ee06f44fab888819e3d9a5e58);
+
+            
+        
+        
+            
+
+            var marker_7fcca08c786c415f805cf41b52960e68 = L.marker(
+                [34.5228,69.1761],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_1b1fae9f70a243a5ae3a40e23f61699f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7fcca08c786c415f805cf41b52960e68.setIcon(icon_1b1fae9f70a243a5ae3a40e23f61699f);
+            
+        
+            
+            var popup_6af4d499b4bc4956b01860f85dcf0f20 = L.popup({maxWidth: '300'});
+
+            
+                var html_a38af18d3552412196d1b142b575fbc7 = $('         <div id="html_a38af18d3552412196d1b142b575fbc7"                 style="width: 100.0%; height: 100.0%;">                 Afghanistan $14,000</div>                 ')[0];
+                popup_6af4d499b4bc4956b01860f85dcf0f20.setContent(html_a38af18d3552412196d1b142b575fbc7);
+            
+
+            marker_7fcca08c786c415f805cf41b52960e68.bindPopup(popup_6af4d499b4bc4956b01860f85dcf0f20);
+
+            
+        
+        
+            
+
+            var marker_285d9301dd2a4b18af5792f7991b4122 = L.marker(
+                [38.5878,68.7864],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_cc94059623a5417b9429d41b9bcdbfe9 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_285d9301dd2a4b18af5792f7991b4122.setIcon(icon_cc94059623a5417b9429d41b9bcdbfe9);
+            
+        
+            
+            var popup_8867071dac014bb7a5ec9baa5d29bf81 = L.popup({maxWidth: '300'});
+
+            
+                var html_e4a695d204bb4c97949e2fc3e0fceced = $('         <div id="html_e4a695d204bb4c97949e2fc3e0fceced"                 style="width: 100.0%; height: 100.0%;">                 Tajikistan $20,315,200</div>                 ')[0];
+                popup_8867071dac014bb7a5ec9baa5d29bf81.setContent(html_e4a695d204bb4c97949e2fc3e0fceced);
+            
+
+            marker_285d9301dd2a4b18af5792f7991b4122.bindPopup(popup_8867071dac014bb7a5ec9baa5d29bf81);
+
+            
+        
+        
+            
+
+            var marker_140fc9b86fa44c6bb802b35284c77309 = L.marker(
+                [38.8895,-77.032],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_afc8409912d34ec1b695b53d79e6d3b3 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_140fc9b86fa44c6bb802b35284c77309.setIcon(icon_afc8409912d34ec1b695b53d79e6d3b3);
+            
+        
+            
+            var popup_ea79930009f24adb8ce2eac14686bad7 = L.popup({maxWidth: '300'});
+
+            
+                var html_0e6e6270aef140a68038dce1d01ee188 = $('         <div id="html_0e6e6270aef140a68038dce1d01ee188"                 style="width: 100.0%; height: 100.0%;">                 United States $25,950,125</div>                 ')[0];
+                popup_ea79930009f24adb8ce2eac14686bad7.setContent(html_0e6e6270aef140a68038dce1d01ee188);
+            
+
+            marker_140fc9b86fa44c6bb802b35284c77309.bindPopup(popup_ea79930009f24adb8ce2eac14686bad7);
+
+            
+        
+        
+            
+
+            var marker_ef7fcc3b3e9e493287fdb7ba33a8c70d = L.marker(
+                [39.7153,32.3606],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_1c9dba01303543248debf9b307b0873b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ef7fcc3b3e9e493287fdb7ba33a8c70d.setIcon(icon_1c9dba01303543248debf9b307b0873b);
+            
+        
+            
+            var popup_570dc62619cb4c3f92abc2c2e0cb7e4f = L.popup({maxWidth: '300'});
+
+            
+                var html_6ce1f7a86d6a4dfdb31a91d9ff10db04 = $('         <div id="html_6ce1f7a86d6a4dfdb31a91d9ff10db04"                 style="width: 100.0%; height: 100.0%;">                 Turkey $504,950</div>                 ')[0];
+                popup_570dc62619cb4c3f92abc2c2e0cb7e4f.setContent(html_6ce1f7a86d6a4dfdb31a91d9ff10db04);
+            
+
+            marker_ef7fcc3b3e9e493287fdb7ba33a8c70d.bindPopup(popup_570dc62619cb4c3f92abc2c2e0cb7e4f);
+
+            
+        
+        
+            
+
+            var marker_a76a896271eb49b19d0872d0ece3d2cd = L.marker(
+                [4.60987,-74.082],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_93f6819b0d604d7183e6de817e1b4ea9 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a76a896271eb49b19d0872d0ece3d2cd.setIcon(icon_93f6819b0d604d7183e6de817e1b4ea9);
+            
+        
+            
+            var popup_1c474fb930954c2d99f9770c850d1e3b = L.popup({maxWidth: '300'});
+
+            
+                var html_9e0b44af507849b9a0c197256de9bf6d = $('         <div id="html_9e0b44af507849b9a0c197256de9bf6d"                 style="width: 100.0%; height: 100.0%;">                 Colombia $16,901,650</div>                 ')[0];
+                popup_1c474fb930954c2d99f9770c850d1e3b.setContent(html_9e0b44af507849b9a0c197256de9bf6d);
+            
+
+            marker_a76a896271eb49b19d0872d0ece3d2cd.bindPopup(popup_1c474fb930954c2d99f9770c850d1e3b);
+
+            
+        
+        
+            
+
+            var marker_a593b4844a0a45908b87c2a0983cb1da = L.marker(
+                [4.85,31.6],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_f6b0f66bb6c94b4c8de8ede495f78a7a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a593b4844a0a45908b87c2a0983cb1da.setIcon(icon_f6b0f66bb6c94b4c8de8ede495f78a7a);
+            
+        
+            
+            var popup_94e8df50754943f49e607085043f0bd3 = L.popup({maxWidth: '300'});
+
+            
+                var html_68a08505a97b4d2eac78bdef842000b0 = $('         <div id="html_68a08505a97b4d2eac78bdef842000b0"                 style="width: 100.0%; height: 100.0%;">                 South Sudan $808,100</div>                 ')[0];
+                popup_94e8df50754943f49e607085043f0bd3.setContent(html_68a08505a97b4d2eac78bdef842000b0);
+            
+
+            marker_a593b4844a0a45908b87c2a0983cb1da.bindPopup(popup_94e8df50754943f49e607085043f0bd3);
+
+            
+        
+        
+            
+
+            var marker_822b3cfc1c964a77a7fb9a7f1f8576af = L.marker(
+                [40.0495,116.286],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_205d32ed68834120b64011354e3d9565 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_822b3cfc1c964a77a7fb9a7f1f8576af.setIcon(icon_205d32ed68834120b64011354e3d9565);
+            
+        
+            
+            var popup_65f19f7dfbcf4837b37898a5f144f7e0 = L.popup({maxWidth: '300'});
+
+            
+                var html_a2c113d0e42345439e5640b2417f25a2 = $('         <div id="html_a2c113d0e42345439e5640b2417f25a2"                 style="width: 100.0%; height: 100.0%;">                 China $289,000</div>                 ')[0];
+                popup_65f19f7dfbcf4837b37898a5f144f7e0.setContent(html_a2c113d0e42345439e5640b2417f25a2);
+            
+
+            marker_822b3cfc1c964a77a7fb9a7f1f8576af.bindPopup(popup_65f19f7dfbcf4837b37898a5f144f7e0);
+
+            
+        
+        
+            
+
+            var marker_e9c4068fa5f24020998f3b0b0a51318a = L.marker(
+                [40.1596,44.509],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_7f7ba4adb88149a6a40cb8aa41426570 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e9c4068fa5f24020998f3b0b0a51318a.setIcon(icon_7f7ba4adb88149a6a40cb8aa41426570);
+            
+        
+            
+            var popup_87a8be3dec394ad6bc15e1be631cc01f = L.popup({maxWidth: '300'});
+
+            
+                var html_99bfdfb16f944f3c8841db45a6623ee7 = $('         <div id="html_99bfdfb16f944f3c8841db45a6623ee7"                 style="width: 100.0%; height: 100.0%;">                 Armenia $15,675,125</div>                 ')[0];
+                popup_87a8be3dec394ad6bc15e1be631cc01f.setContent(html_99bfdfb16f944f3c8841db45a6623ee7);
+            
+
+            marker_e9c4068fa5f24020998f3b0b0a51318a.bindPopup(popup_87a8be3dec394ad6bc15e1be631cc01f);
+
+            
+        
+        
+            
+
+            var marker_16e0ef3364ef4b658cd35d368abf4f6f = L.marker(
+                [40.3834,49.8932],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_5d550ade928241ce8b629b731f433e42 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_16e0ef3364ef4b658cd35d368abf4f6f.setIcon(icon_5d550ade928241ce8b629b731f433e42);
+            
+        
+            
+            var popup_c69cef48bd844882bea06e02a0512edf = L.popup({maxWidth: '300'});
+
+            
+                var html_a77ad406414c4ce1a4fcee2f9eb0b1e4 = $('         <div id="html_a77ad406414c4ce1a4fcee2f9eb0b1e4"                 style="width: 100.0%; height: 100.0%;">                 Azerbaijan $6,843,500</div>                 ')[0];
+                popup_c69cef48bd844882bea06e02a0512edf.setContent(html_a77ad406414c4ce1a4fcee2f9eb0b1e4);
+            
+
+            marker_16e0ef3364ef4b658cd35d368abf4f6f.bindPopup(popup_c69cef48bd844882bea06e02a0512edf);
+
+            
+        
+        
+            
+
+            var marker_fcf71584dcca4b0286d9af0e82bcac07 = L.marker(
+                [41.3317,19.8172],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_9be79050ea394ff6ab78704e656de100 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_fcf71584dcca4b0286d9af0e82bcac07.setIcon(icon_9be79050ea394ff6ab78704e656de100);
+            
+        
+            
+            var popup_b2084e060c254e6e9a7a9486ee775c15 = L.popup({maxWidth: '300'});
+
+            
+                var html_4f4c13e7d30f4058aea98cb499a17399 = $('         <div id="html_4f4c13e7d30f4058aea98cb499a17399"                 style="width: 100.0%; height: 100.0%;">                 Albania $3,343,100</div>                 ')[0];
+                popup_b2084e060c254e6e9a7a9486ee775c15.setContent(html_4f4c13e7d30f4058aea98cb499a17399);
+            
+
+            marker_fcf71584dcca4b0286d9af0e82bcac07.bindPopup(popup_b2084e060c254e6e9a7a9486ee775c15);
+
+            
+        
+        
+            
+
+            var marker_f9c990d3ddd243298711a2a73a622f7b = L.marker(
+                [41.71,44.793],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_ed702e2d909a46e089f08f5e0b34a08e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f9c990d3ddd243298711a2a73a622f7b.setIcon(icon_ed702e2d909a46e089f08f5e0b34a08e);
+            
+        
+            
+            var popup_26fae477d45946e3bd81328d7fc911d8 = L.popup({maxWidth: '300'});
+
+            
+                var html_a44b9c31964648c98dcb7d5771ec038d = $('         <div id="html_a44b9c31964648c98dcb7d5771ec038d"                 style="width: 100.0%; height: 100.0%;">                 Georgia $8,308,425</div>                 ')[0];
+                popup_26fae477d45946e3bd81328d7fc911d8.setContent(html_a44b9c31964648c98dcb7d5771ec038d);
+            
+
+            marker_f9c990d3ddd243298711a2a73a622f7b.bindPopup(popup_26fae477d45946e3bd81328d7fc911d8);
+
+            
+        
+        
+            
+
+            var marker_6112d4c4e8f3404fa417ad9d1d43dca6 = L.marker(
+                [42.565,20.926],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_3dd1f2cb68a049168ce8705bccad3308 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6112d4c4e8f3404fa417ad9d1d43dca6.setIcon(icon_3dd1f2cb68a049168ce8705bccad3308);
+            
+        
+            
+            var popup_880228d4332e40bbb37e2f2ef897fcc8 = L.popup({maxWidth: '300'});
+
+            
+                var html_7c41ad5fcbdb4da9a46067be73931a42 = $('         <div id="html_7c41ad5fcbdb4da9a46067be73931a42"                 style="width: 100.0%; height: 100.0%;">                 Kosovo $2,371,775</div>                 ')[0];
+                popup_880228d4332e40bbb37e2f2ef897fcc8.setContent(html_7c41ad5fcbdb4da9a46067be73931a42);
+            
+
+            marker_6112d4c4e8f3404fa417ad9d1d43dca6.bindPopup(popup_880228d4332e40bbb37e2f2ef897fcc8);
+
+            
+        
+        
+            
+
+            var marker_36349a07954143bbb2e96fa15f6783cb = L.marker(
+                [42.8851,74.6057],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_c132d7826393405493d35e3539965f4a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_36349a07954143bbb2e96fa15f6783cb.setIcon(icon_c132d7826393405493d35e3539965f4a);
+            
+        
+            
+            var popup_4d742e1750a64127a83d1e329133b8b2 = L.popup({maxWidth: '300'});
+
+            
+                var html_e66c46e77fcd419b9b8304041eb7adbd = $('         <div id="html_e66c46e77fcd419b9b8304041eb7adbd"                 style="width: 100.0%; height: 100.0%;">                 Kyrgyzstan $9,035,150</div>                 ')[0];
+                popup_4d742e1750a64127a83d1e329133b8b2.setContent(html_e66c46e77fcd419b9b8304041eb7adbd);
+            
+
+            marker_36349a07954143bbb2e96fa15f6783cb.bindPopup(popup_4d742e1750a64127a83d1e329133b8b2);
+
+            
+        
+        
+            
+
+            var marker_0046408959d0430f8f287a511224144a = L.marker(
+                [47.0167,28.8497],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_f7f7ae28335143479847697f7a1b92f5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0046408959d0430f8f287a511224144a.setIcon(icon_f7f7ae28335143479847697f7a1b92f5);
+            
+        
+            
+            var popup_fbec12dd584345968af6f3e4746f6a8d = L.popup({maxWidth: '300'});
+
+            
+                var html_12ecd6835fc74fa98671e1643cf57ba3 = $('         <div id="html_12ecd6835fc74fa98671e1643cf57ba3"                 style="width: 100.0%; height: 100.0%;">                 Moldova $375,200</div>                 ')[0];
+                popup_fbec12dd584345968af6f3e4746f6a8d.setContent(html_12ecd6835fc74fa98671e1643cf57ba3);
+            
+
+            marker_0046408959d0430f8f287a511224144a.bindPopup(popup_fbec12dd584345968af6f3e4746f6a8d);
+
+            
+        
+        
+            
+
+            var marker_b0e12a183a4c4893b6cd3f09b243893b = L.marker(
+                [47.9129,106.937],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_5ba67a1ffcad442390c4f13be11c4266 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b0e12a183a4c4893b6cd3f09b243893b.setIcon(icon_5ba67a1ffcad442390c4f13be11c4266);
+            
+        
+            
+            var popup_a5996e3b86c8421cb196256dab149e03 = L.popup({maxWidth: '300'});
+
+            
+                var html_b86dd6c7e47c43478399a71b6e471b02 = $('         <div id="html_b86dd6c7e47c43478399a71b6e471b02"                 style="width: 100.0%; height: 100.0%;">                 Mongolia $8,782,825</div>                 ')[0];
+                popup_a5996e3b86c8421cb196256dab149e03.setContent(html_b86dd6c7e47c43478399a71b6e471b02);
+            
+
+            marker_b0e12a183a4c4893b6cd3f09b243893b.bindPopup(popup_a5996e3b86c8421cb196256dab149e03);
+
+            
+        
+        
+            
+
+            var marker_1587b83c0463410ea03748eb98000639 = L.marker(
+                [5.332,-4.0305],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_aee44a7bdfb8471ba63e04a12dc05404 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1587b83c0463410ea03748eb98000639.setIcon(icon_aee44a7bdfb8471ba63e04a12dc05404);
+            
+        
+            
+            var popup_d65bfbefba9e4a0f953a61422f2994f6 = L.popup({maxWidth: '300'});
+
+            
+                var html_f11eb54a8d594354809d41c89b07348b = $('         <div id="html_f11eb54a8d594354809d41c89b07348b"                 style="width: 100.0%; height: 100.0%;">                 Cote D&#39;Ivoire $69,425</div>                 ')[0];
+                popup_d65bfbefba9e4a0f953a61422f2994f6.setContent(html_f11eb54a8d594354809d41c89b07348b);
+            
+
+            marker_1587b83c0463410ea03748eb98000639.bindPopup(popup_d65bfbefba9e4a0f953a61422f2994f6);
+
+            
+        
+        
+            
+
+            var marker_f0efc798d14a47f68dfb0f998f454312 = L.marker(
+                [5.57045,-0.20795],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_a0271bb73114429697a932906e3eb30c = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f0efc798d14a47f68dfb0f998f454312.setIcon(icon_a0271bb73114429697a932906e3eb30c);
+            
+        
+            
+            var popup_8ee38db6584d48c4a3a34566fd2134e8 = L.popup({maxWidth: '300'});
+
+            
+                var html_86544bdf42e64239a8c3256c15135511 = $('         <div id="html_86544bdf42e64239a8c3256c15135511"                 style="width: 100.0%; height: 100.0%;">                 Ghana $6,083,075</div>                 ')[0];
+                popup_8ee38db6584d48c4a3a34566fd2134e8.setContent(html_86544bdf42e64239a8c3256c15135511);
+            
+
+            marker_f0efc798d14a47f68dfb0f998f454312.bindPopup(popup_8ee38db6584d48c4a3a34566fd2134e8);
+
+            
+        
+        
+            
+
+            var marker_5cf2525383f24f918697e28a42bdd4a5 = L.marker(
+                [5.8232,-55.1679],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_82e7a15e18274744b7511e94748f8ed5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5cf2525383f24f918697e28a42bdd4a5.setIcon(icon_82e7a15e18274744b7511e94748f8ed5);
+            
+        
+            
+            var popup_eb5d8155683c4e2b946f8781653e84c5 = L.popup({maxWidth: '300'});
+
+            
+                var html_1ebbb7b479b1441e85d3bc00d0053fce = $('         <div id="html_1ebbb7b479b1441e85d3bc00d0053fce"                 style="width: 100.0%; height: 100.0%;">                 Suriname $748,925</div>                 ')[0];
+                popup_eb5d8155683c4e2b946f8781653e84c5.setContent(html_1ebbb7b479b1441e85d3bc00d0053fce);
+            
+
+            marker_5cf2525383f24f918697e28a42bdd4a5.bindPopup(popup_eb5d8155683c4e2b946f8781653e84c5);
+
+            
+        
+        
+            
+
+            var marker_98dca9c4851f46d1aa8fc082fb392858 = L.marker(
+                [50.4536,30.5038],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_74ecd2be0e324834a000bb464aeb5b3a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_98dca9c4851f46d1aa8fc082fb392858.setIcon(icon_74ecd2be0e324834a000bb464aeb5b3a);
+            
+        
+            
+            var popup_691483e7c86441829d77e7395ac0d440 = L.popup({maxWidth: '300'});
+
+            
+                var html_133080d144e64ebf9f80418a3416bec1 = $('         <div id="html_133080d144e64ebf9f80418a3416bec1"                 style="width: 100.0%; height: 100.0%;">                 Ukraine $3,265,025</div>                 ')[0];
+                popup_691483e7c86441829d77e7395ac0d440.setContent(html_133080d144e64ebf9f80418a3416bec1);
+            
+
+            marker_98dca9c4851f46d1aa8fc082fb392858.bindPopup(popup_691483e7c86441829d77e7395ac0d440);
+
+            
+        
+        
+            
+
+            var marker_feef7e72d90f482fb0ed825ffe88cece = L.marker(
+                [6.1228,1.2255],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_37880c1ff6954b9ebb38339253ae96a8 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_feef7e72d90f482fb0ed825ffe88cece.setIcon(icon_37880c1ff6954b9ebb38339253ae96a8);
+            
+        
+            
+            var popup_c1ef5fc2116f4620b213cbaf2e56235f = L.popup({maxWidth: '300'});
+
+            
+                var html_43e7a3fb583c4cc49d273ed8ba17c11c = $('         <div id="html_43e7a3fb583c4cc49d273ed8ba17c11c"                 style="width: 100.0%; height: 100.0%;">                 Togo $2,583,300</div>                 ')[0];
+                popup_c1ef5fc2116f4620b213cbaf2e56235f.setContent(html_43e7a3fb583c4cc49d273ed8ba17c11c);
+            
+
+            marker_feef7e72d90f482fb0ed825ffe88cece.bindPopup(popup_c1ef5fc2116f4620b213cbaf2e56235f);
+
+            
+        
+        
+            
+
+            var marker_93185183bff54fadacb2990d72be5635 = L.marker(
+                [6.30039,-10.7957],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_bde8e2b0745d48bea78bc883a41e248a = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_93185183bff54fadacb2990d72be5635.setIcon(icon_bde8e2b0745d48bea78bc883a41e248a);
+            
+        
+            
+            var popup_c761845f20e24e4c9b459967dfc9fd55 = L.popup({maxWidth: '300'});
+
+            
+                var html_78a6127890304a28951dc9bf7675df43 = $('         <div id="html_78a6127890304a28951dc9bf7675df43"                 style="width: 100.0%; height: 100.0%;">                 Liberia $1,852,925</div>                 ')[0];
+                popup_c761845f20e24e4c9b459967dfc9fd55.setContent(html_78a6127890304a28951dc9bf7675df43);
+            
+
+            marker_93185183bff54fadacb2990d72be5635.bindPopup(popup_c761845f20e24e4c9b459967dfc9fd55);
+
+            
+        
+        
+            
+
+            var marker_4d2d95e5d93542e9a0c9ede6429c6c87 = L.marker(
+                [6.4779,2.6323],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_2941e5c5b5d547ea9221256d3cbddce5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_4d2d95e5d93542e9a0c9ede6429c6c87.setIcon(icon_2941e5c5b5d547ea9221256d3cbddce5);
+            
+        
+            
+            var popup_9f2d572aa8e048b29a7559553eecfd98 = L.popup({maxWidth: '300'});
+
+            
+                var html_824e5dd41ccb4b7781be3014d2d962f4 = $('         <div id="html_824e5dd41ccb4b7781be3014d2d962f4"                 style="width: 100.0%; height: 100.0%;">                 Benin $2,080,725</div>                 ')[0];
+                popup_9f2d572aa8e048b29a7559553eecfd98.setContent(html_824e5dd41ccb4b7781be3014d2d962f4);
+            
+
+            marker_4d2d95e5d93542e9a0c9ede6429c6c87.bindPopup(popup_9f2d572aa8e048b29a7559553eecfd98);
+
+            
+        
+        
+            
+
+            var marker_7f4f6c6ab58346598c1a2a23e62661ba = L.marker(
+                [8.4821,-13.2134],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_4028107d62e647a9b75e071440c33c09 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7f4f6c6ab58346598c1a2a23e62661ba.setIcon(icon_4028107d62e647a9b75e071440c33c09);
+            
+        
+            
+            var popup_7fc92be1d4814b239a92430c5902204e = L.popup({maxWidth: '300'});
+
+            
+                var html_a26f52976d87449fb6861aed65757b33 = $('         <div id="html_a26f52976d87449fb6861aed65757b33"                 style="width: 100.0%; height: 100.0%;">                 Sierra Leone $6,285,075</div>                 ')[0];
+                popup_7fc92be1d4814b239a92430c5902204e.setContent(html_a26f52976d87449fb6861aed65757b33);
+            
+
+            marker_7f4f6c6ab58346598c1a2a23e62661ba.bindPopup(popup_7fc92be1d4814b239a92430c5902204e);
+
+            
+        
+        
+            
+
+            var marker_ab0c67e730f54fa8b5b87fc258511914 = L.marker(
+                [8.99427,-79.5188],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_6a8809ee87194819b3dbb5d8092bb842 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ab0c67e730f54fa8b5b87fc258511914.setIcon(icon_6a8809ee87194819b3dbb5d8092bb842);
+            
+        
+            
+            var popup_2aaedc762fde400a9109637380d5af1f = L.popup({maxWidth: '300'});
+
+            
+                var html_8c152d91f82c4a459bb4c0af414d002a = $('         <div id="html_8c152d91f82c4a459bb4c0af414d002a"                 style="width: 100.0%; height: 100.0%;">                 Panama $259,275</div>                 ')[0];
+                popup_2aaedc762fde400a9109637380d5af1f.setContent(html_8c152d91f82c4a459bb4c0af414d002a);
+            
+
+            marker_ab0c67e730f54fa8b5b87fc258511914.bindPopup(popup_2aaedc762fde400a9109637380d5af1f);
+
+            
+        
+        
+            
+
+            var marker_c43048ff55ea476e88bd07e6a21cf8ef = L.marker(
+                [9.05804,7.48906],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_17475f9ee42a46a5b3e121e9b61e506f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_c43048ff55ea476e88bd07e6a21cf8ef.setIcon(icon_17475f9ee42a46a5b3e121e9b61e506f);
+            
+        
+            
+            var popup_9057a8b21d1f4c12b7e3b030c947332b = L.popup({maxWidth: '300'});
+
+            
+                var html_5a95592c205e4938815ec7a13e9f29ee = $('         <div id="html_5a95592c205e4938815ec7a13e9f29ee"                 style="width: 100.0%; height: 100.0%;">                 Nigeria $1,541,000</div>                 ')[0];
+                popup_9057a8b21d1f4c12b7e3b030c947332b.setContent(html_5a95592c205e4938815ec7a13e9f29ee);
+            
+
+            marker_c43048ff55ea476e88bd07e6a21cf8ef.bindPopup(popup_9057a8b21d1f4c12b7e3b030c947332b);
+
+            
+        
+        
+            
+
+            var marker_0aa7338fb93346a4b2c847ce40c3392f = L.marker(
+                [9.63701,-84.0089],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_a395d27036bc40138fb6b6e57c99bd62);
+            
+        
+            
+
+                var icon_3f47cb59db2f4765852ede28be479aaa = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0aa7338fb93346a4b2c847ce40c3392f.setIcon(icon_3f47cb59db2f4765852ede28be479aaa);
+            
+        
+            
+            var popup_5954cb66182849afaa3e84d5eca5fc61 = L.popup({maxWidth: '300'});
+
+            
+                var html_c2cdafe580214dd693e4292545fa481b = $('         <div id="html_c2cdafe580214dd693e4292545fa481b"                 style="width: 100.0%; height: 100.0%;">                 Costa Rica $3,441,675</div>                 ')[0];
+                popup_5954cb66182849afaa3e84d5eca5fc61.setContent(html_c2cdafe580214dd693e4292545fa481b);
+            
+
+            marker_0aa7338fb93346a4b2c847ce40c3392f.bindPopup(popup_5954cb66182849afaa3e84d5eca5fc61);
+
+            
+        
+        
+        
+        </script>
+        
