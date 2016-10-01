@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import folium
 import numpy as np
+import matplotlib
+
+#%matplotlib inline
     
 class plot_code(object):
     def __init__(self,df):
@@ -65,6 +68,30 @@ class plot_code(object):
             plt.savefig(path, bbox_inches='tight')
 
         plt.show()
+
+    def plot_avg_loan_by_expired(self):
+    #This section plots bar graphs breaking down expired loans
+
+        top_countries = self.df.groupby('country')[['loan_amount']].mean().reset_index().sort_values(by='loan_amount',ascending=False).head(27)['country'].unique()
+        #Removing these four counties as only had 5 loans between them and for very large amount skewing scale for plotting
+        top_countries = [c for c in top_countries if c not in ('Papua New Guinea','Mauritania','Botswana','Afghanistan')]
+        for column in [('sector','Sector'),('region','Region'),('income_level','Income Level'),('country','Country')]:
+            if column[0] == 'country':
+                row_mask = self.df.country.isin(top_countries)
+            else: 
+                row_mask = self.df.index
+            self.df.loc[row_mask,:].groupby([column[0],'target'])[['loan_amount']].mean().sort_values(by='loan_amount').unstack().sort_values([('loan_amount',0)], ascending=False).plot(kind='barh',figsize=(16,10),rot=15, color=['black','red' ])
+
+            plt.xlabel("Average Loan Amount ($)", fontsize=14)
+            plt.ylabel(column[1], fontsize=14)
+            plt.xticks( )
+            plt.title('Average Loan Amount by ' + column[1] + '/Funded Status', fontsize=16)
+            plt.legend(['Funded','Un-Funded'])
+            plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+            path = './assets/' + column[0] + 'avg_loaned.png'
+            plt.savefig(path, bbox_inches='tight')
+
+        plt.show()  
     
     def plot_point_map(self):
         #Point map showing $$$ of each country loaned to
@@ -90,6 +117,24 @@ class plot_code(object):
         sns.distplot(self.df[(self.df.target==1) & (self.df.loan_amount <10000)].loan_amount, color = 'red', ax=ax)
 
         path = './assets/loan_amount_dist.png'
+        plt.savefig(path, bbox_inches='tight')
+
+        plt.show()
+
+    def gender_loans_count(self):
+        fig = plt.figure(figsize=(16,10))
+        ax = fig.gca()
+
+        self.df[self.df.status=='funded'].groupby('gender')[['loan_amount']].count().reset_index().sort_values(by='loan_amount',ascending=False).plot(kind='barh',figsize=(16,2),rot=5, x='gender',y='loan_amount',ax=ax)
+        plt.yticks(range(2), ('Female', 'Male'))
+        plt.legend().set_visible(False)
+
+        plt.xlabel("Number of Loans Made", fontsize=14)
+        plt.ylabel("Gender", fontsize=14)
+
+        ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+        path = './assets/gender_loan_count.png'
         plt.savefig(path, bbox_inches='tight')
 
         plt.show()
