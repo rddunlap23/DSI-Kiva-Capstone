@@ -7,6 +7,8 @@ from sqlalchemy import create_engine
 from pandas.tseries.offsets import BMonthBegin
 import datetime
 engine = create_engine('postgresql://ryandunlap:tiger@localhost:5432/kivadb')
+from langid.langid import LanguageIdentifier, model
+identifier = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 class initial_load(object):
     
@@ -68,9 +70,24 @@ class initial_load(object):
         if self.verbose:
             print 'Borrow section done (4/7)'
 
-        #Identifies descriptions in English
+        #Identifies descriptions in English and checks they are in fact english
         df['english'] = df.description.map(lambda x: 1 if 'en' in x['languages'] else 0)
         df['english_desc'] = df.description.map(lambda x: x['texts']['en'] if 'en' in x['languages'] else 'NA')
+        
+        df['lang_check'] = df.english_desc.map(lambda x: identifier.classify(x)[0])
+        
+        if self.verbose:
+            print 'Done with checking description (5.a)'
+
+        df['lang_check_use'] = df.use.map(lambda x: identifier.classify(x)[0])
+        
+        if self.verbose:
+            print 'Done with checking use (5.b)'
+
+        #df = df[(df.lang_check=='en') & (df.lang_check_use=='en')]
+        #df.drop('lang_check',axis=1,inplace=True)
+        #df.drop('lang_check_use',axis=1,inplace=True)
+
         if self.verbose:
             print 'Description section done (5/7)'
 
@@ -85,7 +102,8 @@ class initial_load(object):
         df['repayment_term'] = df.terms.map(lambda x: x['repayment_term'])
         df['repayment_interval'] = df.terms.map(lambda x: x['repayment_interval'])
         df['disbursal_currency'] = df.terms.map(lambda x: x['disbursal_currency'] if x['disbursal_currency'] != 'SSP' else 'SDG')
-        df['currency_risk'] = df.terms.map(lambda x: x['loss_liability']['currency_exchange'])
+        df['currency_risk'] = df.terms.map(lambda x: 1 if x['loss_liability']['currency_exchange'] == 'shared' else 0)
+        #df.currency_risk = df.currency_risk.map(lambda x: 1 if x == 'shared' else 0)
         if self.verbose:
             print 'Terms of loan done (7/7)'
 
@@ -95,7 +113,7 @@ class initial_load(object):
         df['target'] = df.status.map(lambda x: 1 if x == 'expired' else 0)
         cols_to_drop = ['_id','author','arrears_amount','basket_amount','borrowers','currency_exchange_loss_amount','date',
                     'delinquent','description','journal_totals','location','name','paid_amount','paid_date','payments',
-                    'text','terms','video','bonus_credit_eligibility','image','partner_id','tags','themes',
+                    'text','terms','video','bonus_credit_eligibility','image','tags','themes',
                     'translator','imgid']
 
         cols_to_use = [c for c in df.columns if c not in cols_to_drop]
