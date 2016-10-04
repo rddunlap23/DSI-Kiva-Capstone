@@ -16,7 +16,7 @@ class plot_code(object):
         def sum_in_millions(series):
             return np.sum(series/1000000)
 
-        top_countries = self.df[self.df.status=='funded'].groupby('country')[['loan_amount']].sum().reset_index().sort_values(by='loan_amount',ascending=False).head(25)['country'].unique()
+        top_countries = self.df[self.df.status=='funded'].groupby('country')[['loan_amount']].count().reset_index().sort_values(by='loan_amount',ascending=False).head(50)['country'].unique()
 
         for column in [('sector','Sector'),('region','Region'),('income_level','Income Level'),('country','Country'),('gender','Gender')]:
             if column[0] == 'country':
@@ -26,7 +26,7 @@ class plot_code(object):
 
             # Plot funded loans by sector
 
-            height_dic = {'country':16,'gender':2,'region':8,'income_level':4,'sector':16}
+            height_dic = {'country':32,'gender':2,'region':8,'income_level':4,'sector':16}
             w = 16
             h = height_dic[column[0]]
 
@@ -49,14 +49,20 @@ class plot_code(object):
             
     def plot_loans_by_gender(self):
         #This section plots bar graphs breaking down expired loans
-        top_countries = self.df.groupby('country')[['target']].mean().reset_index().sort_values(by='target',ascending=False).head(25)['country'].unique()
+        top_countries = self.df.groupby('country')[['loan_amount']].count().reset_index().sort_values(by='loan_amount',ascending=False).head(50)['country'].unique()
+        #top_countries = self.df.groupby('country')[['target']].mean().reset_index().sort_values(by='target',ascending=False).head(25)['country'].unique()
 
         for column in [('sector','Sector'),('region','Region'),('income_level','Income Level'),('country','Country')]:
             if column[0] == 'country':
                 row_mask = self.df.country.isin(top_countries)
             else: 
                 row_mask = self.df.index
-            self.df.loc[row_mask,:].groupby([column[0],'gender'])[['target']].mean().sort_values(by='target').unstack().sort_values([('target',0)], ascending=False).plot(kind='barh',figsize=(16,10),rot=15, color=['steelblue','darkred' ])
+
+            height_dic = {'country':32,'gender':2,'region':8,'income_level':4,'sector':16}
+            w = 16
+            h = height_dic[column[0]]
+
+            self.df.loc[row_mask,:].groupby([column[0],'gender'])[['target']].mean().sort_values(by='target').unstack().sort_values([('target',0)], ascending=False).plot(kind='barh',figsize=(w,h),rot=15, color=['steelblue','darkred' ])
 
             plt.xlabel("% Loans Not Funded", fontsize=14)
             plt.ylabel(column[1], fontsize=14)
@@ -71,8 +77,9 @@ class plot_code(object):
 
     def plot_avg_loan_by_expired(self):
     #This section plots bar graphs breaking down expired loans
+        top_countries = self.df.groupby('country')[['loan_amount']].count().reset_index().sort_values(by='loan_amount',ascending=False).head(50)['country'].unique()
 
-        top_countries = self.df.groupby('country')[['loan_amount']].mean().reset_index().sort_values(by='loan_amount',ascending=False).head(27)['country'].unique()
+        #top_countries = self.df.groupby('country')[['loan_amount']].mean().reset_index().sort_values(by='loan_amount',ascending=False).head(29)['country'].unique()
         #Removing these four counties as only had 5 loans between them and for very large amount skewing scale for plotting
         top_countries = [c for c in top_countries if c not in ('Papua New Guinea','Mauritania','Botswana','Afghanistan')]
         for column in [('sector','Sector'),('region','Region'),('income_level','Income Level'),('country','Country')]:
@@ -80,7 +87,12 @@ class plot_code(object):
                 row_mask = self.df.country.isin(top_countries)
             else: 
                 row_mask = self.df.index
-            self.df.loc[row_mask,:].groupby([column[0],'target'])[['loan_amount']].mean().sort_values(by='loan_amount').unstack().sort_values([('loan_amount',0)], ascending=False).plot(kind='barh',figsize=(16,10),rot=15, color=['black','red' ])
+            
+            height_dic = {'country':32,'gender':2,'region':8,'income_level':4,'sector':16}
+            w = 16
+            h = height_dic[column[0]]
+
+            self.df.loc[row_mask,:].groupby([column[0],'target'])[['loan_amount']].mean().sort_values(by='loan_amount').unstack().sort_values([('loan_amount',0)], ascending=False).plot(kind='barh',figsize=(w,h),rot=15, color=['black','red' ])
 
             plt.xlabel("Average Loan Amount ($)", fontsize=14)
             plt.ylabel(column[1], fontsize=14)
@@ -92,6 +104,8 @@ class plot_code(object):
             plt.savefig(path, bbox_inches='tight')
 
         plt.show()  
+
+
     
     def plot_point_map(self):
         #Point map showing $$$ of each country loaned to
@@ -138,3 +152,33 @@ class plot_code(object):
         plt.savefig(path, bbox_inches='tight')
 
         plt.show()
+
+    def plot_avg_loans_by_gender(self):
+        #This section plots bar graphs breaking down expired loans
+        top_countries = self.df.groupby('country')[['loan_amount']].count().reset_index().sort_values(by='loan_amount',ascending=False).head(50)['country'].unique()
+
+        for column in [('sector','Sector'),('region','Region'),('income_level','Income Level'),('country','Country')]:
+            if column[0] == 'country':
+                row_mask = self.df.country.isin(top_countries)
+                #row_mask = self.index
+            else: 
+                row_mask = self.df.index
+            
+            height_dic = {'country':40,'gender':2,'region':8,'income_level':4,'sector':16}
+            w = 16
+            h = height_dic[column[0]]
+
+            
+            self.df.loc[row_mask,:].groupby([column[0],'gender'])[['loan_amount']].mean().sort_values(by='loan_amount').unstack().sort_values([('loan_amount',0)], ascending=False).plot(kind='barh',figsize=(w,h),rot=15, color=['steelblue','darkred' ])
+
+            plt.xlabel("Avg $ Loaned", fontsize=14)
+            plt.ylabel(column[1], fontsize=14)
+            plt.xticks()
+            plt.title('Averages $ Loaned By ' + column[1] + '/Gender', fontsize=16)
+            plt.legend(['Male','Female'])
+            plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+            path = './assets/' + column[0] + 'avg_by_gender.png'
+            plt.savefig(path, bbox_inches='tight')
+
+            plt.show()
