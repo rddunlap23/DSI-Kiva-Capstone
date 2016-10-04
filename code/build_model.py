@@ -17,7 +17,23 @@ class model_data(object):
         self.engine = create_engine('postgresql://ryandunlap:tiger@localhost:5432/kivadb')
         self.df = self.load_data()
         self.sample_df = pd.DataFrame()
-        
+    
+    def _transform_dummies(self, df):
+        df = pd.get_dummies(df,columns=['year','month','activity','sector','country','income_level','region'],drop_first=True)
+        return df
+
+    def _drop_cols(self, df):
+        cols = ['funded_amount','repayment_interval','country_code','geo_pairs','funded_date','id','planned_expiration_date','posted_date','status','fx_date','end_date','ISO3','disbursal_currency'] 
+        df = df.drop(cols, axis=1)
+        return df
+
+    def _data_clean_up(self, df):
+        cols = ['GDP_Growth','GDP_PCAP_Growth','GNI_PCAP','Tourism','latitude','longitude']
+        for col in cols:
+            df[col] = pd.to_numeric(df[col])
+        return df 
+
+
     def load_data(self):
     #Builds up df linking all data together
 
@@ -39,16 +55,10 @@ class model_data(object):
         """
 
         my_df = pd.read_sql(my_sql,self.engine)
+        
+        my_df = self._data_clean_up(my_df)
         return my_df 
     
-    def _transform_dummies(self, df):
-        df = pd.get_dummies(df,columns=['year','month','activity','sector','country','income_level','region'],drop_first=True)
-        return df
-
-    def _drop_cols(self, df):
-        cols = ['funded_amount','repayment_interval','country_code','geo_pairs','funded_date','id','planned_expiration_date','posted_date','status','fx_date','end_date','ISO3','disbursal_currency'] 
-        df = df.drop(cols, axis=1)
-        return df
 
     def get_stratified_sample(self, col="target", target_sample_size = 2600, target_ratio = 0.05):
         group_df = self.df.groupby(col)
@@ -64,6 +74,8 @@ class model_data(object):
                 new_data = pd.concat([new_data, sample])
         
         df = pd.DataFrame(new_data)
+        df = df[((df.english==1) & (df.lang_check_use=='en') & (df.lang_check=='en'))]
         df = self._transform_dummies(df)
+        df = self._data_clean_up(df)
         df = self._drop_cols(df)
         return df

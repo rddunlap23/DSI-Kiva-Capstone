@@ -18,7 +18,7 @@ class initial_load(object):
                       FROM 
                       (SELECT DISTINCT "posted_date"::timestamp::date, "posted_date"::timestamp::date + INTERVAL '30 days' as "end_date"
                       FROM flat_loans) d
-                      JOIN flat_loans l on (l."posted_date" >= d."posted_date" and l."posted_date" <= d."end_date")
+                      JOIN flat_loans l on (l."posted_date" <= d."posted_date" and l."end_date" >= d."posted_date")
                       GROUP BY d."posted_date", d."end_date";"""
         self.verbose = verbose
 
