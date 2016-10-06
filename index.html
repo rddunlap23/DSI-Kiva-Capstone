@@ -107,16 +107,43 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country.png?raw=true" alt="country">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_level.png?raw=true" alt="income-level"></p>
 
-<p>If you look at the below histogram you can see that the expired loans distribution (red) is is heavily skewed to the right of the funded loans distribution (blue). That it is more difficult to get larger loans funded doesn't come as much of a surprise, but that said it looks like this will be a good signal for our predictive model when we build it. </p>
-
-<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/loan_amount_dist.png?raw=true" alt="income-dist"></p>
-
 <p>Given that the loan size appears to make a difference in the % of loans that go un-funded I next want to take a look at our cross sections of sector, region, country, and income level by average loan size to see if it's that individuals in these cross sections tend to ask for higher dollar loans and if that is what is in fact driving the different funding rates. </p>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sectoravg_loaned.png?raw=true" alt="sector_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/regionavg_loaned.png?raw=true" alt="region_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/countryavg_loaned.png?raw=true" alt="country_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_levelavg_loaned.png?raw=True" alt="income_avg"></p>
+
+<p>If you look at the below histograms you can see that the expired loans distribution (red) is shifted to the right for both loan supply and dollars loaned. These should both be able to help us in predicting if a loan will not be funded. </p>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/loan_amount_dist.png?raw=true" alt="income-dist">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/No_Loans_dist.png?raw=True" alt="loan-supply"></p>
+
+<p>Lastly before moving on to building the model I want to take a look at the correlation matrix for the numerical data. If there are any features strongly correlated with the funding status they will likely be good candidates for the model. A couple of observations here:</p>
+
+<ul>
+<li>Repayment term, loan amount, and number of competing loans have the strongest positive correlation with a loan going unfunded. </li>
+<li>Gender and currency risk are the most strongly negatively correlated with a loan going unfunded. Given how these variables were encoded this implies being male (consistent with analysis above) and not having currency exposure (I would have guessed the opposite) make it harder to get a loan funded. </li>
+</ul>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/correlation_matrix.png?raw=True" alt="corr_matrix"></p>
+
+<p>Now that I've explored the data visually and have a good sense of the breakdown across all of the different subsets/demographics I want to move on to building a model to help predict if a loan will be funded or not. There are going to be four main features that go into the model. They include:</p>
+
+<ul>
+<li>Continuous data (Loan Amount, Number of competing loans, country tourism dollars, GNI per capita, GDP growth per capita, and number of lenders) </li>
+<li>Categorical data (region, country, gender, sector, income level, and activity) which will be encoded into dummy variables of 1s and 0s so that they can be included in model. </li>
+<li>The one sentence headline description which will be represented using a modeling statistic called <a href="TF-IDF">https://en.wikipedia.org/wiki/Tf%E2%80%93idf</a>. TF-IDF or term frequency - inverse document frequency is a method that tracks the number of times a word appears in a document and then adjusted it down based on how many times that word appears across all documents in your corpus. This helps to highlight words that are unique and important to a given document. </li>
+<li>I will use Latent Dirichlet allocation (LDA) which is a statistical model for representing a document by a set of topic weights. So instead of representing a large corpus by 50k + columns, one for each word, each document is represented by a set of topic weights (I am using 20 topics) This is an unsupervised dimensionality reduction technique. </li>
+</ul>
+
+<p>To evaluate model need to .....</p>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/roc_curve.png?raw=True" alt="ROC_curve">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/precision_recall.png?raw=True" alt="precision_recall">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix.png?raw=True" alt="confusion_matrix">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix_normalized.png?raw=True" alt="confusion_normalized">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/feature_importance.png?raw=True" alt="feature_importance"></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/rddunlap23/DSI-Kiva-Capstone">DSI Capstone - Kiva Microloans</a> is maintained by <a href="https://github.com/rddunlap23">rddunlap23</a>.</span>
