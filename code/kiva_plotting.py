@@ -40,6 +40,7 @@ class plot_code(object):
             plt.ylabel(column[1], fontsize=14)
             plt.legend().set_visible(False)
             plt.title('Amount Loaned By ' + column[1], fontsize=16)
+            
             if column[0] =='gender':
                 plt.yticks(range(2), ('Female', 'Male'))
 
@@ -136,6 +137,10 @@ class plot_code(object):
         sns.distplot(self.df[(self.df.target==0) & (self.df.loan_amount <10000)].loan_amount, color = 'steelblue', ax=ax)
         sns.distplot(self.df[(self.df.target==1) & (self.df.loan_amount <10000)].loan_amount, color = 'darkred', ax=ax)
 
+        plt.title('Distribution of Loan Amounts', fontsize=16)
+        plt.xlabel("Loan Amount ($Dollars)", fontsize=14)
+        plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
         path = './assets/loan_amount_dist.png'
         plt.savefig(path, bbox_inches='tight')
 
@@ -224,6 +229,13 @@ class plot_code(object):
 
         sns.distplot(self.df[self.df.target==1][column], color = 'steelblue', ax=ax)
         sns.distplot(self.df[self.df.target==0][column], color = 'darkred', ax=ax)
+
+        plt.title('Distribution of Loan Supply', fontsize=16)
+        plt.xlabel("Number of Competing Loans", fontsize=14)
+        plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+        path = './assets/' + column + '_dist.png'
+        plt.savefig(path, bbox_inches='tight')
 
         plt.show()
 
