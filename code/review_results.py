@@ -150,3 +150,25 @@ class plot_results(object):
         plt.savefig(path, bbox_inches='tight')
 
         plt.show()
+
+    class plot_cvec(object):
+        def __init__(self,X,column='english_desc'):
+            self.X = X
+            self.freq = 0
+            self.column = column
+            
+        def fit_transform(self):
+            cvec = CountVectorizer(stop_words=my_stop_words)
+            Xcvec = cvec.fit_transform(self.X[self.column])
+
+            self.freq = zip(cvec.get_feature_names(), np.asarray(Xcvec.sum(axis=0)).ravel())
+            self.freq.sort(key=lambda x: x[1], reverse=True)
+            
+        def plot_word_count(self, min_words=0, max_words=10000, bins=100):
+            my_min = min_words
+            my_max = max_words
+            freq_df = pd.DataFrame(freq,columns=['word','word_count'])
+            freq_df[(freq_df.word_count > my_min) & (freq_df.word_count < my_max)].hist(column='word_count',bins=bins,figsize=(18,10))
+            plt.xticks(np.arange(my_min, my_max, (my_max - my_min)/40),rotation=75)
+
+            plt.show()
