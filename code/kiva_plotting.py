@@ -208,6 +208,9 @@ class plot_code(object):
         ax.set_xticklabels(ax.xaxis.get_ticklabels(), fontsize=14, rotation=70)
         ax.set_yticklabels(ax.yaxis.get_ticklabels(), fontsize=14, rotation=0)
 
+        path = './assets/correlation_matrix.png'
+        plt.savefig(path, bbox_inches='tight')
+
         plt.show()
 
     def t_test(self, column):
@@ -227,8 +230,8 @@ class plot_code(object):
         fig = plt.figure(figsize=(12,8))
         ax = fig.gca()
 
-        sns.distplot(self.df[self.df.target==1][column], color = 'steelblue', ax=ax)
-        sns.distplot(self.df[self.df.target==0][column], color = 'darkred', ax=ax)
+        sns.distplot(self.df[self.df.target==0][column], color = 'steelblue', ax=ax)
+        sns.distplot(self.df[self.df.target==1][column], color = 'darkred', ax=ax)
 
         plt.title('Distribution of Loan Supply', fontsize=16)
         plt.xlabel("Number of Competing Loans", fontsize=14)
