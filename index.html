@@ -111,7 +111,8 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <li>There are very large disparities across both sectors and countries. There is a &gt; 10% disparity between the low end and the high for both of these demographics. </li>
 </ul>
 
-<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector_expired_loans.png?raw=True" alt="sector_expired">
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/gender_expired_loans.png?raw=True" alt="gender_expired">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector_expired_loans.png?raw=True" alt="sector_expired">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/region_expired_loans.png?raw=True" alt="region_expired">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country_expired_loans.png?raw=True" alt="country_expired">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_level_expired_loans.png?raw=True" alt="income_expired"></p>
@@ -127,7 +128,8 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 
 <p>Given that the loan size appears to make a difference in the % of loans that go un-funded I next want to take a look at our cross sections of sector, region, country, and income level by average loan size to see if the impact is similar across each of these demographics. </p>
 
-<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sectoravg_loaned.png?raw=true" alt="sector_avg">
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/genderavg_loaned.png?raw=True" alt="gender_avg">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sectoravg_loaned.png?raw=true" alt="sector_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/regionavg_loaned.png?raw=true" alt="region_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/countryavg_loaned.png?raw=true" alt="country_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_levelavg_loaned.png?raw=True" alt="income_avg"></p>
@@ -157,19 +159,13 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <ul>
 <li>Continuous data (Loan Amount, Number of competing loans, country tourism dollars, GNI per capita, GDP growth per capita, and number of lenders) </li>
 <li>Categorical data (region, country, gender, sector, income level, and activity) which will be encoded into dummy variables of 1s and 0s so that they can be included in model. </li>
-<li>The one sentence headline description which will be represented using a modeling statistic called <a href="TF-IDF">https://en.wikipedia.org/wiki/Tf%E2%80%93idf</a>. TF-IDF or term frequency - inverse document frequency is a method that tracks the number of times a word appears in a document and then adjusted it down based on how many times that word appears across all documents in your corpus. This helps to highlight words that are unique and important to a given document. </li>
-<li>I will use Latent Dirichlet allocation (LDA) which is a statistical model for representing a document by a set of topic weights. So instead of representing a large corpus by 50k + columns, one for each word, each document is represented by a set of topic weights (I am using 20 topics) This is an unsupervised dimensionality reduction technique. </li>
+<li>The one sentence headline description which will be represented using a modeling statistic called <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a>. TF-IDF or term frequency - inverse document frequency is a method that counts the number of times a word appears in a document and then adjusted it down based on how many times that word appears across all documents in your corpus. This give more weights to words that are common in a document but not common across documents. This helps to highlight what is both important and unique about a document.</li>
+<li>I will use Latent Dirichlet allocation (LDA) which is a statistical model for representing a document by a set of topic weights. So instead of representing a large corpus by 50k + columns, one for each word, each document is represented by a set of topic weights (I am using 20 topics) This is an unsupervised dimensionality reduction technique for representing large bodies of text. </li>
 </ul>
 
 <p>From the EDA that I did above one thing that stood out is that the default rates across the demographics (sector, country, and income level) varied considerably across gender. To capture this interaction I will include features such as gender * sector to capture if there is any variance that is not explained by gender and sector in isolation. </p>
 
 <p>Due to the extremely high correlation between GDP Growth and GDP per capita growth I will strip out the GDP growth. </p>
-
-<p>For the tf-idf and LDA component of the model I want to chop off the most common and most rarely used words to help the model perform better. </p>
-
-<p>I want to get rid of the common words because if every single document has a given word multiple times it will not be helpful to identify what is unique about a given document and will provide very little variance or signal to be picked up in the model. Granted tf-idf already penalizes the most commonly used words in a corpus so they have a very small weight, but to help keep the feature set smaller and the potential overfitting that can result from this I will look to drop these out of the model all together. </p>
-
-<p>On the other extreme I want to remove words that only appear in a few of the documents. This is to try to avoid overfitting where the model would be able to predict specific loans by effectively memorizing unique loans and not be able to generalize to new loans it has not seen. </p>
 
 <h2>
 <a id="model-selection" class="anchor" href="#model-selection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Model Selection</h2>
@@ -178,10 +174,28 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 
 <p>Given that the why is equally if not more important than the prediction itself I am going to explore using a logistic regression classification model. This will tell me what feature have the greatest impact as well as if they are positively or negatively related to the outcome. </p>
 
-<p>To evaluate model need to .....</p>
+<h2>
+<a id="model-tuning" class="anchor" href="#model-tuning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Model Tuning</h2>
 
-<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/roc_curve.png?raw=True" alt="ROC_curve">
-<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/precision_recall.png?raw=True" alt="precision_recall">
+<p>For the tf-idf and LDA component of the model I want to chop off the most common and most rarely used words to help the model perform better. </p>
+
+<p>I want to get rid of the common words because if every single document has a given word multiple times it will not be helpful to identify what is unique about a given document and will provide very little variance or signal to be picked up in the model. Granted tf-idf already penalizes the most commonly used words in a corpus so they have a very small weight, but to help keep the feature set smaller and the potential overfitting that can result from this I will look to drop these out of the model all together. </p>
+
+<p>On the other extreme I want to remove words that only appear in a few of the documents. This is to try to avoid overfitting where the model would be able to predict specific loans by effectively memorizing unique loans and not be able to generalize to new loans it has not seen. </p>
+
+<p>After some doing some histogram plotting for both the headline topic sentence and the description I settled on setting the minimum and maximum words counts for 150,1000 and 100,1600 respectively. </p>
+
+<p>The next step was to do some hyperparameter optimization. I utilized scikit-learn's gridsearch to identify if using an L1(lasso) or L2(ridge) <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a> yielded the best model as well the number of topics to use for the LDA (5,10 or 20). L1 and 20 topics yielded the most accurate model. </p>
+
+<p>Now that I have the model fitted and have optimized the hyperparameters used I want to start to look at evaluating how well the model performed. </p>
+
+<p>The first classification metric I want to look at is the <a href="http://blog.yhat.com/posts/roc-curves.html">ROC</a> curve. A score of 1 means the model is perfect as has 0 false positives. A score of 0.5 is what a naive model would do, effectively a coin flip. With a score of 0.92 I'm off to a good start. </p>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/roc_curve.png?raw=True" alt="ROC_curve"></p>
+
+<p>The next evaulation metric is the <a href="http://mlwiki.org/index.php/Precision_and_Recall">precision/recall curve</a>. This measures the tradeoff of being correct when you guess a loan will expire (precision) versus correctly predicting every loan that expires(recall). Similar to the ROC curve the closer the area under the curve is to 1 the better. </p>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/precision_recall.png?raw=True" alt="precision_recall">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix.png?raw=True" alt="confusion_matrix">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix_normalized.png?raw=True" alt="confusion_normalized">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/feature_importance.png?raw=True" alt="feature_importance"></p>
