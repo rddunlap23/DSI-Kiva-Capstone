@@ -145,4 +145,8 @@ class plot_results(object):
         plt.xlabel("Coeffecient Value", fontsize=14)
         plt.ylabel('Feature', fontsize=14)
         plt.title('Top %s Features from Logistic Regressions'%(n_features), fontsize=20)
+
+        path = './assets/feature_importance.png'
+        plt.savefig(path, bbox_inches='tight')
+
         plt.show()
