@@ -198,7 +198,7 @@ class plot_code(object):
         corrs = df.corr()
 
         # Set the default matplotlib figure size:
-        fig, ax = plt.subplots(figsize=(18,12))
+        fig, ax = plt.subplots(figsize=(16,12))
 
         mask = np.zeros_like(corrs, dtype=np.bool)
         mask[np.triu_indices_from(mask)] = True
@@ -227,7 +227,7 @@ class plot_code(object):
         % (print_dic[column][0], np.mean(unfunded), print_dic[column][1],np.mean(funded), two_sample_diff_var[0],two_sample_diff_var[1])
 
     def plot_hists(self, column):
-        fig = plt.figure(figsize=(12,8))
+        fig = plt.figure(figsize=(16,8))
         ax = fig.gca()
 
         sns.distplot(self.df[self.df.target==0][column], color = 'steelblue', ax=ax)

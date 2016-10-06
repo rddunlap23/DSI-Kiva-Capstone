@@ -22,7 +22,7 @@ class plot_results(object):
     def plot_prauc(self):
         precision, recall, _ = precision_recall_curve(self.y_test, self.y_pp)
         avg_precision = average_precision_score(self.y_test, self.y_pp)
-        fig, axr = plt.subplots(figsize=(10,10))
+        fig, axr = plt.subplots(figsize=(16,10))
 
         axr.plot(recall, precision, label='PRAUC (area = %0.2f)' % avg_precision,
                  color='steelblue', linewidth=4,
@@ -46,7 +46,7 @@ class plot_results(object):
         auc_ = auc(fpr_, tpr_)
         acc_ = np.abs(0.5 - np.mean(self.y_test)) + 0.5
 
-        fig, axr = plt.subplots(figsize=(10,10))
+        fig, axr = plt.subplots(figsize=(16,10))
 
         axr.plot(fpr_, tpr_, label='ROC (area = %0.2f)' % auc_,
                  color='darkred', linewidth=4,
@@ -140,7 +140,7 @@ class plot_results(object):
         features.rename(columns={'index':'Feature',1:'coef'},inplace=True)
         features.sort_values(by='coef(abs)',ascending=False, inplace=True)
 
-        features.head(n_features).sort_values(by='coef').plot(kind='barh', x = 'Feature', y = 'coef',figsize=(14,8))
+        features.head(n_features).sort_values(by='coef').plot(kind='barh', x = 'Feature', y = 'coef',figsize=(16,8))
         plt.legend().set_visible(False)
         plt.xlabel("Coeffecient Value", fontsize=14)
         plt.ylabel('Feature', fontsize=14)
