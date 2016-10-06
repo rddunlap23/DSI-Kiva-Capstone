@@ -133,8 +133,8 @@ class plot_code(object):
         fig = plt.figure(figsize=(16,10))
         ax = fig.gca()
 
-        sns.distplot(self.df[(self.df.target==0) & (self.df.loan_amount <10000)].loan_amount, color = 'blue', ax=ax)
-        sns.distplot(self.df[(self.df.target==1) & (self.df.loan_amount <10000)].loan_amount, color = 'red', ax=ax)
+        sns.distplot(self.df[(self.df.target==0) & (self.df.loan_amount <10000)].loan_amount, color = 'steelblue', ax=ax)
+        sns.distplot(self.df[(self.df.target==1) & (self.df.loan_amount <10000)].loan_amount, color = 'darkred', ax=ax)
 
         path = './assets/loan_amount_dist.png'
         plt.savefig(path, bbox_inches='tight')
@@ -222,8 +222,8 @@ class plot_code(object):
         fig = plt.figure(figsize=(12,8))
         ax = fig.gca()
 
-        sns.distplot(self.df[self.df.target==1][column], color = 'blue', ax=ax)
-        sns.distplot(self.df[self.df.target==0][column], color = 'red', ax=ax)
+        sns.distplot(self.df[self.df.target==1][column], color = 'steelblue', ax=ax)
+        sns.distplot(self.df[self.df.target==0][column], color = 'darkred', ax=ax)
 
         plt.show()
 
