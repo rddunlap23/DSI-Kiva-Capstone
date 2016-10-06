@@ -55,6 +55,9 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 
 <p>The goal of this project is to build a model that will help predict if a loan is at risk of being funded. Armed with this knowledge Kiva can either work to feature these loans more prominently on the sight or work with field partners and borrowers to better present their loans to maximize demand and increase funding. </p>
 
+<h1>
+<a id="exploratory-data-analysis-eda" class="anchor" href="#exploratory-data-analysis-eda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploratory Data Analysis (EDA)</h1>
+
 <h2>
 <a id="exploring-funded-kiva-loans" class="anchor" href="#exploring-funded-kiva-loans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploring Funded Kiva Loans</h2>
 
@@ -94,39 +97,60 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <h2>
 <a id="exploring-kiva-expired-loans" class="anchor" href="#exploring-kiva-expired-loans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploring Kiva Expired Loans</h2>
 
-<p>Now that we have a feel for the profile of the loans made we want to start exploring which types of loans are the most likely to expire before being funded. In total there were 39,975 loans that expired for a total of $57,930,375. This make up ~5.4% of all loans. Once we start subsetting the data a few things stand out. (For countries only showing top 25 countries by % loans expired) </p>
+<p>Now that we have a feel for the profile of the loans made we want to start exploring which types of loans are the most likely to expire before being funded. In total there were 39,975 loans that expired for a total of $57,930,375. This make up ~5.4% of all loans. I want to start subsetting the data to see if we can tease out anything across demographics. (For countries only showing top 25 countries by total $ loaned) </p>
+
+<p>If you look at the below histograms you can see that the expired loans distribution (red) is shifted to the right with a long right tail. This tells me that it is more difficult to get a larger $ loan funded. I will explore this further across demographics. </p>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/loan_amount_dist.png?raw=true" alt="income-dist"></p>
+
+<p>When I look at the overall expiration rate across demographics a few things stand out. </p>
 
 <ul>
 <li>Men have a much more difficult time getting loans funded. Overall ~12% of mens loans go unfunded while women only have ~3.2% of funds expire.</li>
 <li>There is a clear trend that the higher income regions have a harder time getting funded. I suspect this is because the loans are altruistic in nature people are generally biased towards helping out those they feel need it most. </li>
-<li>While all regions have higher expiration rates for men South Asia and Sub-Saharan Africa's disparity is especially stark. </li>
+<li>There are very large disparities across both sectors and countries. There is a &gt; 10% disparity between the low end and the high for both of these demographics. </li>
 </ul>
+
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector_expired_loans.png?raw=True" alt="sector_expired">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/region_expired_loans.png?raw=True" alt="region_expired">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country_expired_loans.png?raw=True" alt="country_expired">
+<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_level_expired_loans.png?raw=True" alt="income_expired"></p>
+
+<p>Given that gender has such a large impact I want to subset each of the demographics by gender to see if there is anything that stands out. </p>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sector.png?raw=true" alt="sectors">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/region.png?raw=true" alt="region">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/country.png?raw=true" alt="country">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_level.png?raw=true" alt="income-level"></p>
 
-<p>Given that the loan size appears to make a difference in the % of loans that go un-funded I next want to take a look at our cross sections of sector, region, country, and income level by average loan size to see if it's that individuals in these cross sections tend to ask for higher dollar loans and if that is what is in fact driving the different funding rates. </p>
+<p>The expiration rate by gender across each of the demographics varies quite a bit. The fact that they're not more consistent tells me that there is an interaction impact here that I should look to include in the model. </p>
+
+<p>Given that the loan size appears to make a difference in the % of loans that go un-funded I next want to take a look at our cross sections of sector, region, country, and income level by average loan size to see if the impact is similar across each of these demographics. </p>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/sectoravg_loaned.png?raw=true" alt="sector_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/regionavg_loaned.png?raw=true" alt="region_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/countryavg_loaned.png?raw=true" alt="country_avg">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/income_levelavg_loaned.png?raw=True" alt="income_avg"></p>
 
-<p>If you look at the below histograms you can see that the expired loans distribution (red) is shifted to the right for both loan supply and dollars loaned. These should both be able to help us in predicting if a loan will not be funded. </p>
+<p>I also want to take a look at how the supply of loans impacts the likelihood of getting a loan funded. From the below histogram you can see that as the number of loans posted increases the likelihood of a loan going un-funded goes up (red)</p>
 
-<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/loan_amount_dist.png?raw=true" alt="income-dist">
-<img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/No_Loans_dist.png?raw=True" alt="loan-supply"></p>
+<p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/No_Loans_dist.png?raw=True" alt="loan-supply"></p>
 
-<p>Lastly before moving on to building the model I want to take a look at the correlation matrix for the numerical data. If there are any features strongly correlated with the funding status they will likely be good candidates for the model. A couple of observations here:</p>
+<p>Lastly before moving on to building the model I want to take a look at the correlation matrix for the numerical data. If there are any features strongly correlated with the funding status they will likely be good candidates for the model. I also want to look at features that have a strong correlation with each other. I will need to eliminate any of these to make the model more stable. A couple of observations here:</p>
 
 <ul>
 <li>Repayment term, loan amount, and number of competing loans have the strongest positive correlation with a loan going unfunded. </li>
 <li>Gender and currency risk are the most strongly negatively correlated with a loan going unfunded. Given how these variables were encoded this implies being male (consistent with analysis above) and not having currency exposure (I would have guessed the opposite) make it harder to get a loan funded. </li>
+<li>GDP and GDP per capita growth are very strongly negatively correlated. I'm going to need to remove one of these before I run my model. </li>
 </ul>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/correlation_matrix.png?raw=True" alt="corr_matrix"></p>
+
+<h1>
+<a id="modeling" class="anchor" href="#modeling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modeling</h1>
+
+<h2>
+<a id="feature-engineering" class="anchor" href="#feature-engineering" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature Engineering</h2>
 
 <p>Now that I've explored the data visually and have a good sense of the breakdown across all of the different subsets/demographics I want to move on to building a model to help predict if a loan will be funded or not. There are going to be four main features that go into the model. They include:</p>
 
@@ -136,6 +160,23 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 <li>The one sentence headline description which will be represented using a modeling statistic called <a href="TF-IDF">https://en.wikipedia.org/wiki/Tf%E2%80%93idf</a>. TF-IDF or term frequency - inverse document frequency is a method that tracks the number of times a word appears in a document and then adjusted it down based on how many times that word appears across all documents in your corpus. This helps to highlight words that are unique and important to a given document. </li>
 <li>I will use Latent Dirichlet allocation (LDA) which is a statistical model for representing a document by a set of topic weights. So instead of representing a large corpus by 50k + columns, one for each word, each document is represented by a set of topic weights (I am using 20 topics) This is an unsupervised dimensionality reduction technique. </li>
 </ul>
+
+<p>From the EDA that I did above one thing that stood out is that the default rates across the demographics (sector, country, and income level) varied considerably across gender. To capture this interaction I will include features such as gender * sector to capture if there is any variance that is not explained by gender and sector in isolation. </p>
+
+<p>Due to the extremely high correlation between GDP Growth and GDP per capita growth I will strip out the GDP growth. </p>
+
+<p>For the tf-idf and LDA component of the model I want to chop off the most common and most rarely used words to help the model perform better. </p>
+
+<p>I want to get rid of the common words because if every single document has a given word multiple times it will not be helpful to identify what is unique about a given document and will provide very little variance or signal to be picked up in the model. Granted tf-idf already penalizes the most commonly used words in a corpus so they have a very small weight, but to help keep the feature set smaller and the potential overfitting that can result from this I will look to drop these out of the model all together. </p>
+
+<p>On the other extreme I want to remove words that only appear in a few of the documents. This is to try to avoid overfitting where the model would be able to predict specific loans by effectively memorizing unique loans and not be able to generalize to new loans it has not seen. </p>
+
+<h2>
+<a id="model-selection" class="anchor" href="#model-selection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Model Selection</h2>
+
+<p>My primary goal is to use this model to be able to not only predict if a loan is at risk of expiring but also to understand what puts it so that Kiva can take steps to improve the likelihood of the loan being funded by either helping the borrower restructure their application (online posting) so that it drives more demand or featuring the loan more prominently on the website to help increase demand. </p>
+
+<p>Given that the why is equally if not more important than the prediction itself I am going to explore using a logistic regression classification model. This will tell me what feature have the greatest impact as well as if they are positively or negatively related to the outcome. </p>
 
 <p>To evaluate model need to .....</p>
 
