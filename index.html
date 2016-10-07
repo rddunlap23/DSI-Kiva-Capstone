@@ -192,7 +192,7 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 
 <p>Now that I have the model fitted and have optimized the hyperparameters used I want to start to look at evaluating how well the model performed. </p>
 
-<p>The first classification metric I want to look at is the <a href="http://blog.yhat.com/posts/roc-curves.html">ROC</a> curve. A score of 1 means the model is perfect as has 0 false positives. A score of 0.5 is what a naive model would do, effectively a coin flip. With a score of 0.92 I'm off to a good start. </p>
+<p>The first classification metric I want to look at is the <a href="http://blog.yhat.com/posts/roc-curves.html">ROC</a> curve. A score of 1 means the model is perfect as has 0 false positives. A score of 0.5 is what a naive model would do, effectively a coin flip. With a score of 0.93 I'm off to a good start. </p>
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/roc_curve.png?raw=True" alt="ROC_curve"></p>
 
@@ -200,15 +200,40 @@ system. Our worldwide network of volunteers then helps to edit and translate loa
 
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/precision_recall.png?raw=True" alt="precision_recall"></p>
 
+<p>Overall the model is performing relatively well.</p>
+
+<p>The accuracy on the test data is 96.2%. This is slightly better than the the baseline accuracy of 95%.
+The AUC of the ROC curve is 93%.
+The AUC of the precision/recall curve of 54%.
+The point precision and recall of the expired class are 72% and 32% respectively. This means of the times the model predicts that a loan expires that it is correct 72% of these times and of all of the expired loans the model identified 32% of these.</p>
+
+<p>I may decide that it is more important to identify a greater percentage of the expired loans with the tradeoff being that I may incorrectly identify more loans as expiring that will actually be funded. In order to do this I can decrease the probability threshold for flagging a loan as expiring. By doing this I could move along the precision recall curve to get a precision of ~63% and a recall of ~50%. This may be preferred if it's determined that the cost to the business of not identifying an expired loan is far higher than incorrectly flagging a good loan as expired.</p>
+
 <p><img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix.png?raw=True" alt="confusion_matrix">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/confusion_matrix_normalized.png?raw=True" alt="confusion_normalized">
 <img src="https://github.com/rddunlap23/DSI-Kiva-Capstone/blob/master/assets/feature_importance.png?raw=True" alt="feature_importance"></p>
 
 <h1>
-<a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusion</h1>
+<a id="conclusions-and-follow-ups" class="anchor" href="#conclusions-and-follow-ups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusions and Follow Ups</h1>
 
-<h1>
-<a id="follow-ups" class="anchor" href="#follow-ups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Follow Ups</h1>
+<ul>
+<li>It is clear that having a high dollar loan, posting your loan during times of high supply, and having a longer loan repayment term all make it more difficult to get a loan funded on Kiva</li>
+<li>On the other side lenders have a preference for loans that are: from women, with multiple borrowers, from countries with higher gross national income per capita, and that already have more lenders assigned. </li>
+<li>The model picked up the fact that there are large disparities between genders within countries as the interaction between country/gender for both Paraguay and Peru were some of the stronger coefficients. </li>
+<li>The headline text analysis picked up many of the words associated with agriculture. In particular loans that are associated with hybrid seed fertilizer are especially prone to going unfunded. </li>
+<li>The topic modeling did not add much to the model. Only 2 of the topics did not get totally whacked by the regularization. These two topics appear to be associated with service related positions. </li>
+</ul>
+
+<p>In order to help improve and tune the model a few things that I would consider exploring are:</p>
+
+<ul>
+<li>Explore using more black box models. Ensemble methods like random forest or gradient boost may yield a more accurate model. </li>
+<li>Including field partner data. It's possible that certain field partners have a better sense of what loans are in high demand and this could help to improve the model.</li>
+<li>Fine tune the LDA model more. As I was sampling and testing data I noticed the topic importance change quite a bit over each iteration. I would look to train the LDA model over a larger sample size and include more topics. This could help to differentiate between loans better. </li>
+<li>As the old saying goes a picture is worth a thousand words. It would be interesting to explore doing image sentiment analysis to see if that could improve the model. </li>
+<li>Kiva also has groups that lenders can belong to. It would be interesting to see some social network analysis to see if certain groups are more successful at driving up lending rates and if they tend to lend to the same loans. </li>
+<li>The data set was large enough that it got pretty unwieldy to run on my laptop. Could have been worthwhile to spin up on AWS and explore using Spark to see if could get any better performance, or at the very least let it run on it's own without tying up my laptop. </li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/rddunlap23/DSI-Kiva-Capstone">DSI Capstone - Kiva Microloans</a> is maintained by <a href="https://github.com/rddunlap23">rddunlap23</a>.</span>
