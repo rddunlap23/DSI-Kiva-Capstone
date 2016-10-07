@@ -68,7 +68,7 @@ class plot_results(object):
 
 
     def _plot_confusion_matrix(self, cm, title='Confusion matrix', cmap=plt.cm.Blues, 
-                              labels=('Funded Loan','Un-Funded Loan')):
+                              labels=('Funded Loan','Expired Loan')):
 
         plt.imshow(cm, interpolation='nearest', cmap=cmap)
         plt.title(title)
@@ -140,14 +140,15 @@ class plot_results(object):
         features.rename(columns={'index':'Feature',1:'coef'},inplace=True)
         features.sort_values(by='coef(abs)',ascending=False, inplace=True)
 
-        features.head(n_features).sort_values(by='coef').plot(kind='barh', x = 'Feature', y = 'coef',figsize=(16,8))
-        plt.legend().set_visible(False)
-        plt.xlabel("Coeffecient Value", fontsize=14)
-        plt.ylabel('Feature', fontsize=14)
-        plt.title('Top %s Features from Logistic Regressions'%(n_features), fontsize=20)
+        for feat_set in [(a,'Kiva Data'),(b,'Headline Text'),(c,'Topics'),(model_cols,'All Data')]:      
+            features[features.Feature.isin(feat_set[0])].head(n_features).sort_values(by='coef').plot(kind='barh', x = 'Feature', y = 'coef',figsize=(16,12))
+            plt.legend().set_visible(False)
+            plt.xlabel("Coeffecient Value", fontsize=14)
+            plt.ylabel('Feature', fontsize=14)
+            plt.title('Top %s Features from %s for Logistic Regressions'%(n_features, feat_set[1]), fontsize=20)
 
-        path = './assets/feature_importance.png'
-        plt.savefig(path, bbox_inches='tight')
+            path = './assets/'+feat_set[1] + 'feature_importance.png'
+            plt.savefig(path, bbox_inches='tight')
 
         plt.show()
 

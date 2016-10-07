@@ -57,23 +57,30 @@ class model_data(object):
         my_df = pd.read_sql(my_sql,self.engine)
         
         my_df = self._data_clean_up(my_df)
-        return my_df 
+        return my_df    
     
 
-    def get_stratified_sample(self, col="target", target_sample_size = 2600, target_ratio = 0.05):
+    def get_stratified_sample(self, col="target", target_sample_size = 2600, target_ratio = 0.05, return_all = False):
         group_df = self.df.groupby(col)
         new_data = pd.DataFrame()
         
-        for group_name, g_df in group_df:
-            if group_name == 0:
-                sample_size = int(target_sample_size/target_ratio)
-                sample = g_df.sample(sample_size)
-                new_data = pd.concat([new_data, sample])
-            else:
-                sample = g_df.sample(target_sample_size)
-                new_data = pd.concat([new_data, sample])
+        if return_all == False:
+            for group_name, g_df in group_df:
+                if group_name == 0:
+                    sample_size = int(target_sample_size/target_ratio)
+                    sample = g_df.sample(sample_size)
+                    new_data = pd.concat([new_data, sample])
+                else:
+                    sample = g_df.sample(target_sample_size)
+                    new_data = pd.concat([new_data, sample])
+        else:
+            pass
         
-        df = pd.DataFrame(new_data)
+        if return_all:
+            df = self.df
+        else:
+            df = pd.DataFrame(new_data)
+
         df = df[((df.english==1) & (df.lang_check_use=='en') & (df.lang_check=='en'))]
         df = self._transform_dummies(df)
         df = self._data_clean_up(df)

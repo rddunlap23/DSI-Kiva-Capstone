@@ -176,6 +176,7 @@ class plot_code(object):
         plt.title('Distribution of Loan Amounts', fontsize=16)
         plt.xlabel("Loan Amount ($Dollars)", fontsize=14)
         plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+        plt.legend(['Funded','Expired'])
 
         path = './assets/loan_amount_dist.png'
         plt.savefig(path, bbox_inches='tight')
@@ -270,8 +271,9 @@ class plot_code(object):
         sns.distplot(self.df[self.df.target==1][column], color = 'darkred', ax=ax)
 
         plt.title('Distribution of Loan Supply', fontsize=16)
-        plt.xlabel("    Number of Competing Loans", fontsize=14)
+        plt.xlabel("Number of Competing Loans", fontsize=14)
         plt.gca().get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+        plt.legend(['Funded','Expired'])
 
         path = './assets/' + column + '_dist.png'
         plt.savefig(path, bbox_inches='tight')
